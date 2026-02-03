@@ -4,7 +4,13 @@ import { createSignal } from 'solid-js'
 export type ColorMode = 'light' | 'dark' | 'system'
 
 // Aesthetic themes
-export type AestheticTheme = 'editorial' | 'minimal' | 'cozy' | 'bold' | 'retro'
+export type AestheticTheme =
+  | 'editorial'
+  | 'minimal'
+  | 'cozy'
+  | 'bold'
+  | 'retro'
+  | 'tokyo'
 
 const COLOR_MODE_KEY = 'oh-my-md:color-mode-v1'
 const AESTHETIC_KEY = 'oh-my-md:aesthetic-v1'
@@ -43,7 +49,7 @@ function loadAesthetic(): AestheticTheme {
     AESTHETIC_KEY,
   ) as AestheticTheme | null
   return stored &&
-    ['editorial', 'minimal', 'cozy', 'bold', 'retro'].includes(stored)
+    ['editorial', 'minimal', 'cozy', 'bold', 'retro', 'tokyo'].includes(stored)
     ? stored
     : 'editorial'
 }
@@ -132,6 +138,7 @@ function applyAesthetic(theme: AestheticTheme): void {
     'theme-cozy',
     'theme-bold',
     'theme-retro',
+    'theme-tokyo',
   )
 
   // Add new aesthetic class
@@ -188,8 +195,8 @@ export const aestheticThemes: Array<{
   {
     value: 'editorial',
     label: 'Editorial',
-    description: 'Elegant magazine with drop caps & flourishes',
-    preview: { accent: '#8b2635', bg: '#fdfbf7', secondary: '#c9a96e' },
+    description: 'Clean, confident serif for focused reading',
+    preview: { accent: '#1a3a5c', bg: '#fcfcfa', secondary: '#8b4a2a' },
   },
   {
     value: 'minimal',
@@ -200,20 +207,26 @@ export const aestheticThemes: Array<{
   {
     value: 'cozy',
     label: 'Cozy',
-    description: 'Handwritten notes & highlighter marks',
-    preview: { accent: '#c75c2e', bg: '#fef9f3', secondary: '#fff3a3' },
+    description: 'Warm fireside reading, deep browns & amber',
+    preview: { accent: '#b45930', bg: '#faf6f0', secondary: '#c77a30' },
   },
   {
     value: 'bold',
     label: 'Bold',
-    description: 'Neon maximalism with gradient glows',
-    preview: { accent: '#00f0ff', bg: '#0f0a1a', secondary: '#ff00aa' },
+    description: 'Vibrant colors, readable maximalism',
+    preview: { accent: '#a78bfa', bg: '#12101a', secondary: '#f472b6' },
   },
   {
     value: 'retro',
     label: 'Retro',
-    description: 'CRT terminal with scanlines & phosphor',
-    preview: { accent: '#33ff33', bg: '#0a0f0a' },
+    description: 'Terminal nostalgia, optimized for reading',
+    preview: { accent: '#7ecf7e', bg: '#0f1610', secondary: '#6ecfcf' },
+  },
+  {
+    value: 'tokyo',
+    label: 'Tokyo',
+    description: "Tokyo Night - Neovim's beloved color scheme",
+    preview: { accent: '#7aa2f7', bg: '#24283b', secondary: '#bb9af7' },
   },
 ]
 

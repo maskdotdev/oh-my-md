@@ -8,15 +8,17 @@
    Each theme has its own distinctive typography soul
    ───────────────────────────────────────────────────────────────────────────── */
 
-/* EDITORIAL: Cormorant Garamond (luxe serif) + Instrument Serif (display) */
-@import '@fontsource/cormorant-garamond/400.css';
-@import '@fontsource/cormorant-garamond/400-italic.css';
-@import '@fontsource/cormorant-garamond/600.css';
-@import '@fontsource/cormorant-garamond/700.css';
-@import '@fontsource/instrument-serif/400.css';
-@import '@fontsource/instrument-serif/400-italic.css';
-@import '@fontsource/noto-serif-display/400.css';
-@import '@fontsource/noto-serif-display/700.css';
+/* EDITORIAL: Newsreader (modern serif optimized for screens) + Lora (elegant body) */
+@import '@fontsource/newsreader/400.css';
+@import '@fontsource/newsreader/400-italic.css';
+@import '@fontsource/newsreader/500.css';
+@import '@fontsource/newsreader/600.css';
+@import '@fontsource/newsreader/700.css';
+@import '@fontsource/lora/400.css';
+@import '@fontsource/lora/400-italic.css';
+@import '@fontsource/lora/500.css';
+@import '@fontsource/lora/600.css';
+@import '@fontsource/lora/700.css';
 
 /* MINIMAL: Plus Jakarta Sans (geometric, balanced) */
 @import '@fontsource/plus-jakarta-sans/400.css';
@@ -51,6 +53,16 @@
 @import '@fontsource/space-mono/400-italic.css';
 @import '@fontsource/space-mono/700.css';
 
+/* TOKYO: IBM Plex Sans (clean, modern Japanese-tech inspired) + IBM Plex Mono */
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/400-italic.css';
+@import '@fontsource/ibm-plex-sans/500.css';
+@import '@fontsource/ibm-plex-sans/600.css';
+@import '@fontsource/ibm-plex-sans/700.css';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+@import '@fontsource/ibm-plex-mono/600.css';
+
 /* Shared code fonts */
 @import '@fontsource/jetbrains-mono/400.css';
 @import '@fontsource/jetbrains-mono/600.css';
@@ -65,82 +77,86 @@
    THEME: EDITORIAL
    ═══════════════════════════════════════════════════════════════════════════
    
-   AESTHETIC: The New Yorker meets Vogue
-   - Luxurious serif typography with generous x-height
-   - Elegant drop caps that command attention
-   - Refined ornamental rules and flourishes
-   - Cream paper tones with deep ink blacks
-   - Controlled asymmetry in pull quotes
-   - Small caps for subheadings
+   AESTHETIC: The Perfect Reading Experience
+   - Beautiful, confident serif typography
+   - Strong hierarchy without decoration
+   - Pure focus on the words
+   - Ink-black text on perfect paper
+   - The theme you'd choose for your favorite book
    ═══════════════════════════════════════════════════════════════════════════ */
 
 :root.theme-editorial {
-  --font-display: 'Instrument Serif', 'Noto Serif Display', Georgia, serif;
-  --font-body: 'Cormorant Garamond', Georgia, serif;
-  --font-ui: 'Cormorant Garamond', Georgia, serif;
+  /* Newsreader for headings, Lora for body - both modern, highly readable serifs */
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body: 'Lora', Georgia, serif;
+  --font-ui: 'Lora', Georgia, serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Warm ivory paper */
-  --th-bg: #fdfbf7;
-  --th-bg-subtle: #f8f4eb;
+  /* True paper white - clean, not yellow */
+  --th-bg: #fcfcfa;
+  --th-bg-subtle: #f5f5f2;
   --th-bg-elevated: #ffffff;
-  --th-fg: #1a1814;
-  --th-fg-muted: #5c574e;
-  --th-fg-subtle: #8a8478;
 
-  /* Rich burgundy accent */
-  --th-accent: #8b2635;
-  --th-accent-subtle: #f5e6e8;
-  --th-accent-glow: rgba(139, 38, 53, 0.15);
+  /* Rich, deep ink black */
+  --th-fg: #1c1c1a;
+  --th-fg-muted: #4a4a45;
+  --th-fg-subtle: #7a7a72;
 
-  --th-border: #e8e4db;
-  --th-border-subtle: #f2efe8;
+  /* Deep blue-black accent - confident, not flashy */
+  --th-accent: #1a3a5c;
+  --th-accent-secondary: #2d5a87;
+  --th-accent-subtle: rgba(26, 58, 92, 0.08);
+  --th-accent-glow: rgba(26, 58, 92, 0.12);
 
-  /* Editorial flourishes */
-  --th-dropcap: #8b2635;
-  --th-pullquote: #8b2635;
-  --th-ornament: #c9a96e;
-  --th-rule: linear-gradient(
-    90deg,
-    transparent 0%,
-    #c9a96e 15%,
-    #c9a96e 85%,
-    transparent 100%
-  );
-  --th-rule-ornate: url("data:image/svg+xml,%3Csvg width='100' height='12' viewBox='0 0 100 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6h40l5-5 5 5h10l5-5 5 5h30' stroke='%23c9a96e' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+  /* Warm secondary for variety */
+  --th-warm: #9a4a25;
+  --th-muted-accent: #5a6a7a;
 
-  /* Generous reading rhythm */
-  --th-prose-width: 42rem;
-  --th-line-height: 1.85;
-  --th-paragraph-spacing: 1.75em;
-  --th-letter-spacing: 0.01em;
+  --th-border: #e5e5e0;
+  --th-border-subtle: #efefea;
 
-  --th-radius: 0;
-  --th-radius-lg: 0;
+  --th-dropcap: #1a3a5c;
+  --th-pullquote: #4a4a45;
+  --th-ornament: #1a3a5c;
+  --th-rule: #d5d5d0;
+
+  /* Optimal reading dimensions */
+  --th-prose-width: 40rem;
+  --th-line-height: 1.75;
+  --th-paragraph-spacing: 1.5em;
+  --th-letter-spacing: 0;
+
+  /* Sharp, clean edges */
+  --th-radius: 3px;
+  --th-radius-lg: 5px;
 }
 
 :root.theme-editorial.dark {
-  --th-bg: #141210;
-  --th-bg-subtle: #1e1b17;
-  --th-bg-elevated: #252219;
-  --th-fg: #f5f2eb;
-  --th-fg-muted: #b5ae9f;
-  --th-fg-subtle: #7d776b;
-  --th-accent: #d4a574;
-  --th-accent-subtle: #2a231c;
-  --th-accent-glow: rgba(212, 165, 116, 0.2);
-  --th-border: #3d3830;
-  --th-border-subtle: #2a261f;
-  --th-dropcap: #d4a574;
-  --th-pullquote: #d4a574;
-  --th-ornament: #d4a574;
-  --th-rule: linear-gradient(
-    90deg,
-    transparent 0%,
-    #6b5d4a 15%,
-    #6b5d4a 85%,
-    transparent 100%
-  );
+  /* Deep, rich charcoal - not pure black */
+  --th-bg: #161618;
+  --th-bg-subtle: #1e1e22;
+  --th-bg-elevated: #26262a;
+
+  /* Warm off-white - easy on eyes */
+  --th-fg: #e8e8e6;
+  --th-fg-muted: #a5a5a0;
+  --th-fg-subtle: #6a6a65;
+
+  /* Softer blue accent for dark mode */
+  --th-accent: #7aa2c7;
+  --th-accent-secondary: #5a8ab7;
+  --th-accent-subtle: rgba(122, 162, 199, 0.1);
+  --th-accent-glow: rgba(122, 162, 199, 0.15);
+
+  --th-warm: #d4a078;
+  --th-muted-accent: #8a9aaa;
+
+  --th-border: #35353a;
+  --th-border-subtle: #28282c;
+  --th-dropcap: #7aa2c7;
+  --th-pullquote: #a5a5a0;
+  --th-ornament: #7aa2c7;
+  --th-rule: #35353a;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -222,93 +238,96 @@
    THEME: COZY
    ═══════════════════════════════════════════════════════════════════════════
    
-   AESTHETIC: Handwritten notes in a coffee shop journal
-   - Warm slab serif for reading
-   - Handwritten fonts for accents and annotations
-   - Soft rounded corners everywhere
-   - Paper textures and subtle shadows
-   - Highlighter-style emphasis
-   - Sticky note and paper clip decorations
+   AESTHETIC: Fireside Reading
+   - Warm amber lighting, like reading by a fireplace
+   - Deep browns and soft creams
+   - Comfortable serif typography
+   - Intimate and enveloping atmosphere
+   - Designed for long evening reading sessions
    ═══════════════════════════════════════════════════════════════════════════ */
 
 :root.theme-cozy {
-  --font-display: 'Caveat', cursive;
+  --font-display: 'Bitter', Georgia, serif;
   --font-body: 'Bitter', Georgia, serif;
   --font-ui: 'Bitter', Georgia, serif;
   --font-mono: 'Fira Code', monospace;
-  --font-handwritten: 'Caveat', cursive;
-  --font-casual: 'Kalam', cursive;
 
-  /* Warm cream with slight pink undertone */
-  --th-bg: #fef9f3;
-  --th-bg-subtle: #fdf4e9;
-  --th-bg-elevated: #ffffff;
-  --th-fg: #3d3225;
-  --th-fg-muted: #6b5d4d;
-  --th-fg-subtle: #9c8b78;
+  /* Warm parchment - like pages lit by firelight */
+  --th-bg: #faf6f0;
+  --th-bg-subtle: #f4ede3;
+  --th-bg-elevated: #fffdf9;
+  --th-fg: #3a3028;
+  --th-fg-muted: #5c4f42;
+  --th-fg-subtle: #8c7b6a;
 
-  /* Warm terracotta/coral */
-  --th-accent: #c75c2e;
-  --th-accent-subtle: #fde8dd;
-  --th-accent-glow: rgba(199, 92, 46, 0.15);
+  /* Warm ember/copper accent */
+  --th-accent: #b45930;
+  --th-accent-secondary: #8b4513;
+  --th-accent-subtle: rgba(180, 89, 48, 0.1);
+  --th-accent-glow: rgba(180, 89, 48, 0.15);
 
-  /* Highlighter colors */
-  --th-highlight-yellow: #fff3a3;
-  --th-highlight-green: #c8f7c5;
-  --th-highlight-pink: #ffd6e0;
+  /* Warm color palette */
+  --th-amber: #c77a30;
+  --th-rust: #a04520;
+  --th-gold: #a08040;
+  --th-sage: #6b7c5a;
 
-  --th-border: #e8dfd3;
-  --th-border-subtle: #f5efe5;
+  --th-border: #e0d5c8;
+  --th-border-subtle: #ebe3d8;
 
-  --th-dropcap: #c75c2e;
-  --th-pullquote: #6b5d4d;
-  --th-ornament: #c75c2e;
-  --th-rule: repeating-linear-gradient(
+  --th-dropcap: #b45930;
+  --th-pullquote: #5c4f42;
+  --th-ornament: #a08040;
+  --th-rule: linear-gradient(
     90deg,
-    #d4c4b0 0px,
-    #d4c4b0 8px,
-    transparent 8px,
-    transparent 12px
+    transparent 0%,
+    #d0c4b0 20%,
+    #d0c4b0 80%,
+    transparent 100%
   );
 
-  /* Comfortable, spacious reading */
+  /* Comfortable reading dimensions */
   --th-prose-width: 40rem;
-  --th-line-height: 1.9;
+  --th-line-height: 1.85;
   --th-paragraph-spacing: 1.5em;
-  --th-letter-spacing: 0;
+  --th-letter-spacing: 0.01em;
 
-  /* Soft, friendly */
-  --th-radius: 0.75rem;
-  --th-radius-lg: 1.25rem;
-
-  /* Paper texture */
-  --th-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  /* Soft, rounded */
+  --th-radius: 0.375rem;
+  --th-radius-lg: 0.625rem;
 }
 
 :root.theme-cozy.dark {
-  --th-bg: #1f1a14;
-  --th-bg-subtle: #2a241c;
-  --th-bg-elevated: #352d24;
-  --th-fg: #f5efe5;
-  --th-fg-muted: #c9bba8;
+  /* Deep warm brown - like a dim room lit by fire */
+  --th-bg: #1a1512;
+  --th-bg-subtle: #231e19;
+  --th-bg-elevated: #2a2420;
+  --th-fg: #e8e0d4;
+  --th-fg-muted: #c4b8a8;
   --th-fg-subtle: #8a7d6d;
-  --th-accent: #e8935a;
-  --th-accent-subtle: #3d2f24;
-  --th-accent-glow: rgba(232, 147, 90, 0.2);
-  --th-highlight-yellow: rgba(255, 243, 163, 0.15);
-  --th-highlight-green: rgba(200, 247, 197, 0.15);
-  --th-highlight-pink: rgba(255, 214, 224, 0.15);
-  --th-border: #443b2e;
-  --th-border-subtle: #2f2820;
-  --th-dropcap: #e8935a;
-  --th-pullquote: #c9bba8;
-  --th-ornament: #e8935a;
-  --th-rule: repeating-linear-gradient(
+
+  /* Warmer, brighter accent for dark mode */
+  --th-accent: #e09050;
+  --th-accent-secondary: #c07038;
+  --th-accent-subtle: rgba(224, 144, 80, 0.12);
+  --th-accent-glow: rgba(224, 144, 80, 0.2);
+
+  --th-amber: #e0a050;
+  --th-rust: #c87048;
+  --th-gold: #c0a060;
+  --th-sage: #8a9a78;
+
+  --th-border: #3a322a;
+  --th-border-subtle: #2a241e;
+  --th-dropcap: #e09050;
+  --th-pullquote: #c4b8a8;
+  --th-ornament: #c0a060;
+  --th-rule: linear-gradient(
     90deg,
-    #5a4d3d 0px,
-    #5a4d3d 8px,
-    transparent 8px,
-    transparent 12px
+    transparent 0%,
+    #4a4030 20%,
+    #4a4030 80%,
+    transparent 100%
   );
 }
 
@@ -316,105 +335,104 @@
    THEME: BOLD
    ═══════════════════════════════════════════════════════════════════════════
    
-   AESTHETIC: Maximalist Neo-Brutalism meets Y2K
-   - Experimental geometric typography
-   - Gradient mesh backgrounds
-   - Glowing neon accents
-   - 3D depth with dramatic shadows
-   - Animated gradients on hover
-   - Overlapping elements, broken grid
+   AESTHETIC: Readable Maximalism
+   - Vibrant, colorful palette that's still easy on the eyes
+   - Strong typographic hierarchy for paper reading
+   - Selective use of glows and gradients for emphasis
+   - Comfortable reading with bold personality
+   - Designed for extended reading sessions
    ═══════════════════════════════════════════════════════════════════════════ */
 
 :root.theme-bold {
-  --font-display: 'Archivo Black', 'Syne', Impact, sans-serif;
+  --font-display: 'Syne', 'Archivo Black', Impact, sans-serif;
   --font-body: 'Outfit', sans-serif;
   --font-ui: 'Outfit', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-experimental: 'Syne', sans-serif;
 
-  /* Deep purple/blue gradient base */
-  --th-bg: #0f0a1a;
-  --th-bg-subtle: #1a1230;
-  --th-bg-elevated: #251845;
-  --th-fg: #ffffff;
-  --th-fg-muted: #b8a5d6;
-  --th-fg-subtle: #7a6899;
+  /* Rich indigo base - softer than pure black */
+  --th-bg: #12101a;
+  --th-bg-subtle: #1a1725;
+  --th-bg-elevated: #221f2e;
+  --th-fg: #eeedf2;
+  --th-fg-muted: #a8a3b8;
+  --th-fg-subtle: #6b6580;
 
-  /* Electric cyan + magenta */
-  --th-accent: #00f0ff;
-  --th-accent-secondary: #ff00aa;
-  --th-accent-subtle: rgba(0, 240, 255, 0.15);
-  --th-accent-glow: rgba(0, 240, 255, 0.4);
+  /* Vibrant but readable accent palette */
+  --th-accent: #a78bfa;
+  --th-accent-secondary: #f472b6;
+  --th-accent-subtle: rgba(167, 139, 250, 0.12);
+  --th-accent-glow: rgba(167, 139, 250, 0.2);
 
-  --th-border: #3d2a6b;
-  --th-border-subtle: #2a1d4a;
+  /* Additional colors for variety */
+  --th-cyan: #67e8f9;
+  --th-pink: #f472b6;
+  --th-orange: #fb923c;
+  --th-green: #4ade80;
 
-  --th-dropcap: linear-gradient(135deg, #00f0ff 0%, #ff00aa 100%);
-  --th-pullquote: #00f0ff;
-  --th-ornament: #ff00aa;
-  --th-rule: linear-gradient(90deg, #00f0ff, #ff00aa, #00f0ff);
+  --th-border: #2e2a3d;
+  --th-border-subtle: #23202e;
 
-  /* Gradient mesh for backgrounds */
+  --th-dropcap: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
+  --th-pullquote: #a8a3b8;
+  --th-ornament: #a78bfa;
+  --th-rule: linear-gradient(90deg, #a78bfa, #f472b6, #67e8f9);
+
+  /* Subtle gradient mesh - atmospheric, not distracting */
   --th-gradient-mesh:
     radial-gradient(
-      ellipse at 20% 80%,
-      rgba(0, 240, 255, 0.15) 0%,
+      ellipse at 0% 100%,
+      rgba(167, 139, 250, 0.08) 0%,
       transparent 50%
     ),
     radial-gradient(
-      ellipse at 80% 20%,
-      rgba(255, 0, 170, 0.15) 0%,
+      ellipse at 100% 0%,
+      rgba(244, 114, 182, 0.06) 0%,
       transparent 50%
-    ),
-    radial-gradient(
-      ellipse at 50% 50%,
-      rgba(138, 43, 226, 0.1) 0%,
-      transparent 70%
     );
 
-  /* Wide, impactful layout */
-  --th-prose-width: 48rem;
-  --th-line-height: 1.7;
-  --th-paragraph-spacing: 2em;
-  --th-letter-spacing: -0.02em;
+  /* Comfortable reading dimensions */
+  --th-prose-width: 42rem;
+  --th-line-height: 1.75;
+  --th-paragraph-spacing: 1.6em;
+  --th-letter-spacing: 0;
 
-  /* Chunky, confident */
-  --th-radius: 0.5rem;
-  --th-radius-lg: 1rem;
+  /* Softened corners */
+  --th-radius: 0.375rem;
+  --th-radius-lg: 0.75rem;
 }
 
 :root.theme-bold.dark {
-  /* Bold IS dark-first, but we can go even darker */
-  --th-bg: #050208;
-  --th-bg-subtle: #0d0815;
-  --th-bg-elevated: #1a1030;
-  --th-border: #2a1d4a;
-  --th-border-subtle: #1a1030;
+  /* Dark mode is the default - these are the same */
 }
 
-/* Light mode for Bold - inverted, still wild */
+/* Light mode for Bold - vibrant but readable */
 :root.theme-bold:not(.dark) {
-  --th-bg: #faf5ff;
-  --th-bg-subtle: #f3e8ff;
+  --th-bg: #faf8ff;
+  --th-bg-subtle: #f3f0fa;
   --th-bg-elevated: #ffffff;
-  --th-fg: #1a0a30;
-  --th-fg-muted: #6b4d9a;
-  --th-fg-subtle: #9d7fd1;
+  --th-fg: #1e1b2e;
+  --th-fg-muted: #5c5672;
+  --th-fg-subtle: #8a839e;
   --th-accent: #7c3aed;
-  --th-accent-secondary: #ec4899;
-  --th-accent-subtle: rgba(124, 58, 237, 0.15);
-  --th-accent-glow: rgba(124, 58, 237, 0.3);
-  --th-border: #e9d5ff;
-  --th-border-subtle: #f3e8ff;
+  --th-accent-secondary: #db2777;
+  --th-accent-subtle: rgba(124, 58, 237, 0.1);
+  --th-accent-glow: rgba(124, 58, 237, 0.15);
+  --th-cyan: #0891b2;
+  --th-pink: #db2777;
+  --th-orange: #ea580c;
+  --th-green: #16a34a;
+  --th-border: #e4e0f0;
+  --th-border-subtle: #f0ecf8;
   --th-gradient-mesh:
     radial-gradient(
-      ellipse at 20% 80%,
-      rgba(124, 58, 237, 0.1) 0%,
+      ellipse at 0% 100%,
+      rgba(124, 58, 237, 0.05) 0%,
       transparent 50%
     ),
     radial-gradient(
-      ellipse at 80% 20%,
-      rgba(236, 72, 153, 0.1) 0%,
+      ellipse at 100% 0%,
+      rgba(219, 39, 119, 0.04) 0%,
       transparent 50%
     );
 }
@@ -423,105 +441,204 @@
    THEME: RETRO
    ═══════════════════════════════════════════════════════════════════════════
    
-   AESTHETIC: 1980s computer terminal + BBS systems
-   - Monospace everything, pixel fonts for headers
-   - Phosphor green or amber on black
-   - CRT scanline effects
-   - Blinking cursor, typing animations
-   - ASCII art decorations
-   - Chunky, blocky UI elements
+   AESTHETIC: Academic Computing Lab circa 1995
+   - Warm, readable phosphor-inspired palette
+   - Space Mono for UI, proportional body text for comfortable reading
+   - Subtle CRT warmth without harsh scanlines
+   - Nostalgic terminal accents that don't impede reading
+   - Designed for extended paper reading sessions
    ═══════════════════════════════════════════════════════════════════════════ */
 
 :root.theme-retro {
-  --font-display: 'Press Start 2P', monospace;
-  --font-body: 'VT323', 'Space Mono', monospace;
+  /* Readable fonts: Space Mono for headers/UI, Bitter for body (warm slab) */
+  --font-display: 'Space Mono', 'VT323', monospace;
+  --font-body: 'Bitter', Georgia, serif;
   --font-ui: 'Space Mono', monospace;
-  --font-mono: 'VT323', monospace;
+  --font-mono: 'VT323', 'Space Mono', monospace;
 
-  /* CRT phosphor green */
-  --th-bg: #0a0f0a;
-  --th-bg-subtle: #0f170f;
-  --th-bg-elevated: #142014;
-  --th-fg: #33ff33;
-  --th-fg-muted: #22cc22;
-  --th-fg-subtle: #1a991a;
+  /* Deep green-tinted background like a phosphor monitor */
+  --th-bg: #0f1610;
+  --th-bg-subtle: #151d16;
+  --th-bg-elevated: #1a231b;
+  --th-fg: #d4e8d4;
+  --th-fg-muted: #a8c4a8;
+  --th-fg-subtle: #6b8a6b;
 
-  /* Bright phosphor accent */
-  --th-accent: #33ff33;
-  --th-accent-secondary: #ffff33;
-  --th-accent-subtle: rgba(51, 255, 51, 0.1);
-  --th-accent-glow: rgba(51, 255, 51, 0.5);
+  /* Soft green accent - readable but nostalgic */
+  --th-accent: #7ecf7e;
+  --th-accent-secondary: #5ab85a;
+  --th-accent-subtle: rgba(126, 207, 126, 0.12);
+  --th-accent-glow: rgba(126, 207, 126, 0.2);
 
-  --th-border: #1a4d1a;
-  --th-border-subtle: #0f2f0f;
+  /* Additional accent colors for variety */
+  --th-cyan: #6ecfcf;
+  --th-yellow: #cfcf6e;
+  --th-amber: #cfaa6e;
+  --th-pink: #cf8eaf;
 
-  --th-dropcap: #33ff33;
-  --th-pullquote: #22cc22;
-  --th-ornament: #33ff33;
-  --th-rule: repeating-linear-gradient(
+  --th-border: #2a3d2c;
+  --th-border-subtle: #1e2d20;
+
+  --th-dropcap: #7ecf7e;
+  --th-pullquote: #a8c4a8;
+  --th-ornament: #7ecf7e;
+  --th-rule: linear-gradient(
     90deg,
-    #33ff33 0px,
-    #33ff33 4px,
-    transparent 4px,
-    transparent 8px
+    transparent 0%,
+    #3a5a3c 20%,
+    #3a5a3c 80%,
+    transparent 100%
   );
 
-  /* Scanline effect */
-  --th-scanlines: repeating-linear-gradient(
+  /* Very subtle green warmth effect */
+  --th-scanlines: linear-gradient(
     0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.3) 2px,
-    rgba(0, 0, 0, 0.3) 4px
+    transparent 0%,
+    rgba(126, 207, 126, 0.015) 50%,
+    transparent 100%
   );
 
-  /* CRT glow */
-  --th-crt-glow:
-    0 0 10px rgba(51, 255, 51, 0.3), 0 0 20px rgba(51, 255, 51, 0.2),
-    0 0 40px rgba(51, 255, 51, 0.1);
+  /* Subtle green glow */
+  --th-crt-glow: 0 0 40px rgba(126, 207, 126, 0.08);
 
-  /* Terminal dimensions */
-  --th-prose-width: 80ch;
-  --th-line-height: 1.5;
-  --th-paragraph-spacing: 1.5em;
-  --th-letter-spacing: 0;
+  /* Comfortable reading dimensions */
+  --th-prose-width: 42rem;
+  --th-line-height: 1.8;
+  --th-paragraph-spacing: 1.6em;
+  --th-letter-spacing: 0.01em;
 
-  /* Blocky, no curves */
-  --th-radius: 0;
-  --th-radius-lg: 0;
+  /* Slightly softened edges */
+  --th-radius: 2px;
+  --th-radius-lg: 4px;
 }
 
-/* Amber variant for light mode */
+/* Light mode: Soft green-tinted paper */
 :root.theme-retro:not(.dark) {
-  --th-bg: #1a1508;
-  --th-bg-subtle: #252010;
-  --th-bg-elevated: #302a18;
-  --th-fg: #ffaa00;
-  --th-fg-muted: #cc8800;
-  --th-fg-subtle: #996600;
-  --th-accent: #ffaa00;
-  --th-accent-secondary: #ff5500;
-  --th-accent-subtle: rgba(255, 170, 0, 0.1);
-  --th-accent-glow: rgba(255, 170, 0, 0.5);
-  --th-border: #4d3d1a;
-  --th-border-subtle: #2f2510;
-  --th-dropcap: #ffaa00;
-  --th-pullquote: #cc8800;
-  --th-ornament: #ffaa00;
-  --th-rule: repeating-linear-gradient(
+  --th-bg: #f0f5f0;
+  --th-bg-subtle: #e4ece4;
+  --th-bg-elevated: #f8fbf8;
+  --th-fg: #2a352a;
+  --th-fg-muted: #445544;
+  --th-fg-subtle: #6b7a6b;
+  --th-accent: #2d8a2d;
+  --th-accent-secondary: #1f6b1f;
+  --th-accent-subtle: rgba(45, 138, 45, 0.1);
+  --th-accent-glow: rgba(45, 138, 45, 0.15);
+
+  /* Light mode accent colors */
+  --th-cyan: #1a7a7a;
+  --th-yellow: #7a7a1a;
+  --th-amber: #8a6a1a;
+  --th-pink: #8a4a6a;
+
+  --th-border: #c8d8c8;
+  --th-border-subtle: #dbe8db;
+  --th-dropcap: #2d8a2d;
+  --th-pullquote: #445544;
+  --th-ornament: #2d8a2d;
+  --th-rule: linear-gradient(
     90deg,
-    #ffaa00 0px,
-    #ffaa00 4px,
-    transparent 4px,
-    transparent 8px
+    transparent 0%,
+    #b8c8b8 20%,
+    #b8c8b8 80%,
+    transparent 100%
   );
-  --th-crt-glow:
-    0 0 10px rgba(255, 170, 0, 0.3), 0 0 20px rgba(255, 170, 0, 0.2),
-    0 0 40px rgba(255, 170, 0, 0.1);
+  --th-scanlines: none;
+  --th-crt-glow: none;
 }
 
 :root.theme-retro.dark {
-  /* Green is the default dark mode */
+  /* Dark amber is the default dark mode */
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THEME: TOKYO
+   ═══════════════════════════════════════════════════════════════════════════
+   
+   AESTHETIC: Tokyo Night - Neovim's beloved color scheme
+   - Deep storm blue backgrounds with soft contrast
+   - Vibrant yet harmonious accent colors
+   - Clean, modern Japanese-tech inspired typography
+   - Subtle neon glow effects reminiscent of Tokyo nightlife
+   - Designed for developers who love their editor theme
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root.theme-tokyo {
+  /* IBM Plex - clean, modern, tech-forward */
+  --font-display: 'IBM Plex Sans', -apple-system, system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', -apple-system, system-ui, sans-serif;
+  --font-ui: 'IBM Plex Sans', -apple-system, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+
+  /* Tokyo Night Storm - the signature deep blue */
+  --th-bg: #24283b;
+  --th-bg-subtle: #1f2335;
+  --th-bg-elevated: #292e42;
+
+  /* Soft foreground colors */
+  --th-fg: #c0caf5;
+  --th-fg-muted: #a9b1d6;
+  --th-fg-subtle: #565f89;
+
+  /* Signature Tokyo Night colors */
+  --th-accent: #7aa2f7; /* Blue - primary */
+  --th-accent-secondary: #bb9af7; /* Purple/Magenta */
+  --th-accent-subtle: rgba(122, 162, 247, 0.12);
+  --th-accent-glow: rgba(122, 162, 247, 0.25);
+
+  /* Extended palette from tokyonight */
+  --th-cyan: #7dcfff;
+  --th-green: #9ece6a;
+  --th-orange: #ff9e64;
+  --th-red: #f7768e;
+  --th-magenta: #bb9af7;
+  --th-yellow: #e0af68;
+  --th-teal: #73daca;
+
+  --th-border: #3b4261;
+  --th-border-subtle: #2f334d;
+
+  --th-dropcap: #7aa2f7;
+  --th-pullquote: #a9b1d6;
+  --th-ornament: #7dcfff;
+  --th-rule: linear-gradient(
+    90deg,
+    transparent 0%,
+    #3b4261 15%,
+    #7aa2f7 50%,
+    #3b4261 85%,
+    transparent 100%
+  );
+
+  /* Subtle ambient glow - like neon reflecting off wet streets */
+  --th-gradient-mesh:
+    radial-gradient(
+      ellipse at 20% 80%,
+      rgba(122, 162, 247, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(187, 154, 247, 0.05) 0%,
+      transparent 50%
+    );
+
+  /* Comfortable reading dimensions */
+  --th-prose-width: 42rem;
+  --th-line-height: 1.75;
+  --th-paragraph-spacing: 1.5em;
+  --th-letter-spacing: 0;
+
+  /* Soft, modern corners */
+  --th-radius: 0.375rem;
+  --th-radius-lg: 0.625rem;
+}
+
+/* Tokyo Night is ALWAYS dark - it ignores the light/dark color mode toggle.
+   This is intentional: Tokyo Night is a dark theme by identity. */
+:root.theme-tokyo.dark,
+:root.theme-tokyo:not(.dark) {
+  /* All variables already defined in base :root.theme-tokyo above */
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -609,6 +726,20 @@ body {
   position: relative;
 }
 
+/* Subtle green ambient glow instead of harsh scanlines */
+.theme-retro body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(126, 207, 126, 0.025) 0%,
+    transparent 60%
+  );
+  z-index: 0;
+}
+
 .theme-retro body::after {
   content: '';
   position: fixed;
@@ -622,14 +753,24 @@ body {
   position: relative;
 }
 
-.theme-cozy body::before {
+.theme-tokyo body {
+  background: var(--th-bg);
+  background-image: var(--th-gradient-mesh);
+  min-height: 100vh;
+}
+
+/* Warm ambient glow - like firelight */
+.theme-cozy.dark body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: var(--th-texture);
-  opacity: 0.02;
   pointer-events: none;
-  z-index: -1;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(224, 144, 80, 0.04) 0%,
+    transparent 60%
+  );
+  z-index: 0;
 }
 
 code {
@@ -762,14 +903,21 @@ code {
      LISTS
      ───────────────────────────────────────────────────────────────────────── */
 
-  .markdown ul,
+  .markdown ul {
+    list-style-type: disc;
+    margin: 0 0 var(--th-paragraph-spacing);
+    padding-left: 1.75rem;
+  }
+
   .markdown ol {
+    list-style-type: decimal;
     margin: 0 0 var(--th-paragraph-spacing);
     padding-left: 1.75rem;
   }
 
   .markdown li {
     margin-bottom: 0.5rem;
+    display: list-item;
   }
 
   .markdown li::marker {
@@ -917,102 +1065,322 @@ code {
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   EDITORIAL: Magazine elegance
+   EDITORIAL: The perfect reading experience
    ───────────────────────────────────────────────────────────────────────────── */
 
 .theme-editorial .markdown {
-  font-size: 1.1875rem;
+  font-size: 1.125rem;
 }
 
+/* Bold, confident title */
 .theme-editorial .markdown h1 {
-  font-size: 3.5rem;
-  font-weight: 400;
-  font-style: italic;
-  border-bottom: none;
-  position: relative;
-  padding-bottom: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.theme-editorial .markdown h1::after {
-  content: '◆';
-  display: block;
-  text-align: center;
-  font-style: normal;
-  font-size: 0.75rem;
-  color: var(--th-ornament);
-  margin-top: 1.5rem;
-  letter-spacing: 1em;
-}
-
-.theme-editorial .markdown h2 {
-  font-weight: 400;
-  font-size: 1.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-family: var(--font-body);
-  font-variant: small-caps;
-}
-
-.theme-editorial .markdown h3 {
-  font-style: italic;
-  font-weight: 400;
-}
-
-/* Magnificent drop cap */
-.theme-editorial .markdown > p:first-of-type::first-letter {
-  float: left;
   font-family: var(--font-display);
-  font-size: 5rem;
-  line-height: 0.75;
-  padding-right: 0.75rem;
-  padding-top: 0.25rem;
-  color: var(--th-dropcap);
-  font-weight: 400;
-  font-style: italic;
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--th-fg);
+  margin-bottom: 1.5rem;
 }
 
-.theme-editorial .markdown blockquote {
-  border-left: none;
-  border-top: 1px solid var(--th-ornament);
-  border-bottom: 1px solid var(--th-ornament);
-  background: transparent;
-  padding: 2rem 0;
-  margin: 3rem 2rem;
-  text-align: center;
+/* Strong section headers */
+.theme-editorial .markdown h2 {
+  font-family: var(--font-display);
   font-size: 1.5rem;
-  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--th-accent);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--th-border);
+}
+
+/* Subsection with warmth */
+.theme-editorial .markdown h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--th-warm);
+  margin-top: 2rem;
+}
+
+.theme-editorial .markdown h4 {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--th-fg-muted);
+}
+
+/* Bold stands out clearly */
+.theme-editorial .markdown strong {
+  font-weight: 600;
   color: var(--th-fg);
 }
 
-.theme-editorial .markdown blockquote::before {
-  content: '"';
-  display: block;
-  font-family: var(--font-display);
-  font-size: 4rem;
-  color: var(--th-ornament);
-  line-height: 0.5;
-  margin-bottom: 1rem;
+/* Italic with subtle warmth */
+.theme-editorial .markdown em {
+  font-style: italic;
 }
 
+/* Clean, elegant blockquote */
+.theme-editorial .markdown blockquote {
+  background: var(--th-bg-subtle);
+  border-left: 3px solid var(--th-accent);
+  border-radius: var(--th-radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 1.75rem 0;
+  font-style: italic;
+  color: var(--th-fg-muted);
+}
+
+.theme-editorial .markdown blockquote::before {
+  content: none;
+}
+
+.theme-editorial .markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Simple, elegant rule */
 .theme-editorial .markdown hr {
   height: 1px;
   background: var(--th-rule);
-  margin: 4rem auto;
-  max-width: 60%;
-  position: relative;
+  border: none;
+  margin: 2.5rem 0;
 }
 
 .theme-editorial .markdown hr::before {
-  content: '§';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--th-bg);
-  padding: 0 1rem;
-  color: var(--th-ornament);
-  font-size: 1.25rem;
+  content: none;
+}
+
+/* Links with confident underline */
+.theme-editorial .markdown a {
+  color: var(--th-accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(26, 58, 92, 0.35);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: all 0.15s ease;
+}
+
+.theme-editorial .markdown a:hover {
+  text-decoration-color: var(--th-accent);
+}
+
+/* Inline code - subtle but clear */
+.theme-editorial .markdown :not(pre) > code {
+  background: var(--th-bg-subtle);
+  color: var(--th-warm);
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius);
+  padding: 0.15rem 0.4rem;
+  font-size: 0.875em;
+}
+
+/* Lists - ensure markers are visible */
+.theme-editorial .markdown ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.theme-editorial .markdown ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+}
+
+.theme-editorial .markdown ul li::marker {
+  color: var(--th-accent);
+}
+
+.theme-editorial .markdown ol li::marker {
+  color: var(--th-accent);
+  font-weight: 600;
+}
+
+/* Bold, confident title */
+.theme-editorial .markdown h1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--th-fg);
+  margin-bottom: 1.5rem;
+}
+
+/* Strong section headers */
+.theme-editorial .markdown h2 {
+  font-family: var(--font-display);
+  font-size: 1.625rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--th-accent);
+  margin-top: 2.75rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--th-border);
+}
+
+/* Subsection with warmth */
+.theme-editorial .markdown h3 {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 400;
+  color: var(--th-warm);
+  margin-top: 2rem;
+}
+
+.theme-editorial .markdown h4 {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--th-fg-muted);
+  letter-spacing: 0.02em;
+}
+
+/* Bold stands out clearly */
+.theme-editorial .markdown strong {
+  font-weight: 700;
+  color: var(--th-fg);
+}
+
+/* Italic with subtle color shift */
+.theme-editorial .markdown em {
+  font-style: italic;
+  color: var(--th-muted-accent);
+}
+
+/* Clean, elegant blockquote */
+.theme-editorial .markdown blockquote {
+  background: var(--th-bg-subtle);
+  border-left: 3px solid var(--th-accent);
+  border-radius: var(--th-radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 1.75rem 0;
+  font-style: italic;
+  color: var(--th-fg-muted);
+}
+
+.theme-editorial .markdown blockquote::before {
+  content: none;
+}
+
+.theme-editorial .markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Simple, elegant rule */
+.theme-editorial .markdown hr {
+  height: 1px;
+  background: var(--th-rule);
+  border: none;
+  margin: 2.5rem 0;
+}
+
+.theme-editorial .markdown hr::before {
+  content: none;
+}
+
+/* Links with confident underline */
+.theme-editorial .markdown a {
+  color: var(--th-accent);
+  text-decoration: underline;
+  text-decoration-color: var(--th-accent-subtle);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: all 0.15s ease;
+}
+
+.theme-editorial .markdown a:hover {
+  color: var(--th-accent-secondary);
+  text-decoration-color: var(--th-accent-secondary);
+}
+
+/* Inline code - subtle but clear */
+.theme-editorial .markdown :not(pre) > code {
+  background: var(--th-bg-subtle);
+  color: var(--th-warm);
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius);
+  padding: 0.15rem 0.4rem;
+  font-size: 0.875em;
+}
+
+/* Lists - ensure markers are visible */
+.theme-editorial .markdown ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.theme-editorial .markdown ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+}
+
+.theme-editorial .markdown ul li::marker {
+  color: var(--th-accent);
+}
+
+.theme-editorial .markdown ol li::marker {
+  color: var(--th-accent);
+  font-weight: 600;
+}
+
+/* Clean tables */
+.theme-editorial .markdown table {
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius-lg);
+  overflow: hidden;
+}
+
+.theme-editorial .markdown th,
+.theme-editorial .markdown td {
+  border-color: var(--th-border-subtle);
+  padding: 0.75rem 1rem;
+}
+
+.theme-editorial .markdown th {
+  background: var(--th-bg-subtle);
+  color: var(--th-accent);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.theme-editorial .markdown td {
+  background: var(--th-bg-elevated);
+}
+
+/* Images with subtle treatment */
+.theme-editorial .markdown img {
+  border-radius: var(--th-radius-lg);
+  border: 1px solid var(--th-border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.theme-editorial.dark .markdown img {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Highlight */
+.theme-editorial .markdown mark {
+  background: rgba(26, 58, 92, 0.12);
+  color: var(--th-accent);
+  padding: 0.1rem 0.3rem;
+  border-radius: var(--th-radius);
+}
+
+.theme-editorial.dark .markdown mark {
+  background: rgba(122, 162, 199, 0.15);
+}
+
+/* Strikethrough */
+.theme-editorial .markdown del {
+  color: var(--th-fg-subtle);
+  text-decoration-color: var(--th-warm);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -1100,184 +1468,270 @@ code {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   COZY: Handwritten warmth
+   COZY: Fireside reading
    ───────────────────────────────────────────────────────────────────────────── */
 
 .theme-cozy .markdown {
   font-size: 1.125rem;
 }
 
+/* Warm, inviting title */
 .theme-cozy .markdown h1 {
   font-family: var(--font-display);
-  font-size: 3rem;
+  font-size: 2.25rem;
   font-weight: 700;
-  color: var(--th-accent);
-  transform: rotate(-1deg);
-  margin-bottom: 2rem;
+  color: var(--th-fg);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--th-border);
 }
 
 .theme-cozy .markdown h2 {
   font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 600;
-  position: relative;
-  display: inline-block;
-}
-
-.theme-cozy .markdown h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: -4px;
-  right: -4px;
-  height: 0.5em;
-  background: var(--th-highlight-yellow);
-  z-index: -1;
-  transform: rotate(-0.5deg);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--th-amber);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .theme-cozy .markdown h3 {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--th-rust);
+  margin-top: 2rem;
+}
+
+.theme-cozy .markdown h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--th-fg-muted);
 }
 
+/* Bold with warm accent */
 .theme-cozy .markdown strong {
-  background: var(--th-highlight-green);
-  padding: 0 0.25rem;
+  color: var(--th-accent);
+  font-weight: 700;
 }
 
+/* Italic with subtle warmth */
+.theme-cozy .markdown em {
+  color: var(--th-gold);
+  font-style: italic;
+}
+
+/* Warm, comfortable blockquote */
 .theme-cozy .markdown blockquote {
-  background: var(--th-highlight-yellow);
-  border-left: none;
+  background: var(--th-bg-subtle);
+  border-left: 3px solid var(--th-accent);
   border-radius: var(--th-radius-lg);
-  padding: 1.5rem 2rem;
-  transform: rotate(0.5deg);
-  box-shadow:
-    4px 4px 0 var(--th-border),
-    8px 8px 20px rgba(0, 0, 0, 0.08);
-  position: relative;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--th-fg-muted);
 }
 
 .theme-cozy .markdown blockquote::before {
-  content: '📌';
-  position: absolute;
-  top: -12px;
-  left: 20px;
-  font-size: 1.5rem;
+  content: none;
 }
 
+.theme-cozy .markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Simple, elegant rule */
 .theme-cozy .markdown hr {
-  height: 4px;
+  height: 1px;
   background: var(--th-rule);
-  margin: 3rem 0;
-  border-radius: 2px;
+  border: none;
+  margin: 2.5rem 0;
 }
 
+/* Warm links */
 .theme-cozy .markdown a {
   color: var(--th-accent);
-  text-decoration: none;
-  background: linear-gradient(transparent 60%, var(--th-highlight-pink) 60%);
-  transition: background-size 0.2s;
+  text-decoration: underline;
+  text-decoration-color: var(--th-accent-subtle);
+  text-underline-offset: 3px;
+  transition: all 0.2s ease;
 }
 
 .theme-cozy .markdown a:hover {
-  background: linear-gradient(transparent 40%, var(--th-highlight-pink) 40%);
+  color: var(--th-rust);
+  text-decoration-color: var(--th-rust);
 }
 
+/* Inline code with warm styling */
 .theme-cozy .markdown :not(pre) > code {
-  background: var(--th-bg-elevated);
-  border: 2px dashed var(--th-border);
-  border-radius: 0.5rem;
+  background: var(--th-bg-subtle);
+  color: var(--th-rust);
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius);
+  padding: 0.15rem 0.4rem;
+  font-size: 0.9em;
 }
 
+/* Lists with warm markers */
+.theme-cozy .markdown ul li::marker {
+  color: var(--th-accent);
+}
+
+.theme-cozy .markdown ol li::marker {
+  color: var(--th-amber);
+  font-weight: 600;
+}
+
+/* Clean tables */
 .theme-cozy .markdown table {
-  box-shadow: 4px 4px 0 var(--th-border);
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius-lg);
+  overflow: hidden;
 }
 
+.theme-cozy .markdown th,
+.theme-cozy .markdown td {
+  border-color: var(--th-border-subtle);
+  padding: 0.75rem 1rem;
+}
+
+.theme-cozy .markdown th {
+  background: var(--th-bg-subtle);
+  color: var(--th-amber);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.theme-cozy .markdown td {
+  background: var(--th-bg-elevated);
+}
+
+/* Images with subtle warmth */
 .theme-cozy .markdown img {
   border-radius: var(--th-radius-lg);
+  border: 1px solid var(--th-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.theme-cozy.dark .markdown img {
   box-shadow:
-    6px 6px 0 var(--th-border),
-    12px 12px 30px rgba(0, 0, 0, 0.1);
-  transform: rotate(-1deg);
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    0 0 30px rgba(224, 144, 80, 0.03);
+}
+
+/* Highlight with warm glow */
+.theme-cozy .markdown mark {
+  background: rgba(192, 160, 96, 0.25);
+  color: var(--th-gold);
+  padding: 0.1rem 0.3rem;
+  border-radius: var(--th-radius);
+}
+
+/* Strikethrough */
+.theme-cozy .markdown del {
+  color: var(--th-fg-subtle);
+  text-decoration-color: var(--th-rust);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   BOLD: Maximalist neo-brutalism
+   BOLD: Readable maximalism
    ───────────────────────────────────────────────────────────────────────────── */
 
 .theme-bold .markdown {
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
 }
 
+/* Gradient title - the one place we go all out */
 .theme-bold .markdown h1 {
   font-family: var(--font-display);
-  font-size: 4rem;
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
   background: var(--th-dropcap);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: none;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .theme-bold .markdown h2 {
-  font-family: var(--font-experimental);
-  font-size: 2rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--th-accent);
+  letter-spacing: -0.01em;
+  color: var(--th-cyan);
+  margin-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--th-border);
 }
 
 .theme-bold .markdown h3 {
-  font-family: var(--font-experimental);
+  font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  color: var(--th-pink);
+  margin-top: 2rem;
 }
 
 .theme-bold .markdown h4 {
   font-family: var(--font-ui);
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--th-fg-muted);
 }
 
+/* Bold text pops with accent color */
 .theme-bold .markdown strong {
   color: var(--th-accent);
   font-weight: 700;
 }
 
+/* Italic gets warm orange tint */
+.theme-bold .markdown em {
+  color: var(--th-orange);
+  font-style: italic;
+}
+
+/* Blockquotes with gradient accent */
 .theme-bold .markdown blockquote {
-  background: var(--th-bg-elevated);
-  border-left: 6px solid;
+  background: var(--th-bg-subtle);
+  border-left: 4px solid;
   border-image: linear-gradient(
       180deg,
       var(--th-accent) 0%,
-      var(--th-accent-secondary, var(--th-accent)) 100%
+      var(--th-pink) 100%
     )
     1;
   border-radius: 0 var(--th-radius-lg) var(--th-radius-lg) 0;
-  box-shadow:
-    0 4px 30px var(--th-accent-glow),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--th-fg-muted);
 }
 
+.theme-bold .markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Gradient rule - subtle glow */
 .theme-bold .markdown hr {
-  height: 4px;
+  height: 2px;
   background: var(--th-rule);
-  border-radius: 2px;
-  box-shadow: 0 0 20px var(--th-accent-glow);
+  border: none;
+  border-radius: 1px;
+  margin: 2.5rem 0;
 }
 
+/* Links with animated underline */
 .theme-bold .markdown a {
-  color: var(--th-accent);
+  color: var(--th-cyan);
   text-decoration: none;
   position: relative;
+  transition: color 0.2s ease;
 }
 
 .theme-bold .markdown a::after {
@@ -1287,14 +1741,14 @@ code {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(
-    90deg,
-    var(--th-accent),
-    var(--th-accent-secondary, var(--th-accent))
-  );
+  background: linear-gradient(90deg, var(--th-cyan), var(--th-accent));
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s ease;
+}
+
+.theme-bold .markdown a:hover {
+  color: var(--th-accent);
 }
 
 .theme-bold .markdown a:hover::after {
@@ -1302,251 +1756,523 @@ code {
   transform-origin: left;
 }
 
+/* Inline code with pink accent */
 .theme-bold .markdown :not(pre) > code {
-  background: var(--th-accent-subtle);
-  color: var(--th-accent);
+  background: var(--th-bg-elevated);
+  color: var(--th-pink);
+  border: 1px solid var(--th-border);
   border-radius: var(--th-radius);
-  box-shadow: 0 0 10px var(--th-accent-glow);
+  padding: 0.15rem 0.4rem;
+  font-size: 0.9em;
 }
 
+/* Lists with colorful markers */
+.theme-bold .markdown ul {
+  list-style: none;
+  padding-left: 1.5rem;
+}
+
+.theme-bold .markdown ul li {
+  position: relative;
+}
+
+.theme-bold .markdown ul li::before {
+  content: '●';
+  color: var(--th-accent);
+  position: absolute;
+  left: -1.25rem;
+  font-size: 0.6em;
+  top: 0.5em;
+}
+
+.theme-bold .markdown ol li::marker {
+  color: var(--th-cyan);
+  font-weight: 700;
+}
+
+/* Tables with subtle styling */
 .theme-bold .markdown table {
-  border: 2px solid var(--th-border);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius-lg);
+  overflow: hidden;
+}
+
+.theme-bold .markdown th,
+.theme-bold .markdown td {
+  border-color: var(--th-border-subtle);
+  padding: 0.75rem 1rem;
 }
 
 .theme-bold .markdown th {
-  background: linear-gradient(
-    135deg,
-    var(--th-bg-elevated) 0%,
-    var(--th-bg-subtle) 100%
-  );
+  background: var(--th-bg-subtle);
+  color: var(--th-cyan);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
+.theme-bold .markdown td {
+  background: var(--th-bg-elevated);
+}
+
+/* Images with subtle glow */
 .theme-bold .markdown img {
   border-radius: var(--th-radius-lg);
+  border: 1px solid var(--th-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.theme-bold.dark .markdown img {
   box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.3),
-    0 0 60px var(--th-accent-glow);
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(167, 139, 250, 0.05);
+}
+
+/* Highlight with accent */
+.theme-bold .markdown mark {
+  background: rgba(167, 139, 250, 0.25);
+  color: var(--th-accent);
+  padding: 0.1rem 0.3rem;
+  border-radius: var(--th-radius);
+}
+
+/* Strikethrough */
+.theme-bold .markdown del {
+  color: var(--th-fg-subtle);
+  text-decoration-color: var(--th-pink);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   RETRO: Terminal aesthetic
+   RETRO: Academic paper reading optimized
    ───────────────────────────────────────────────────────────────────────────── */
 
 .theme-retro .markdown {
-  font-size: 1.25rem;
-  text-shadow: var(--th-crt-glow);
+  font-size: 1.125rem;
 }
 
+/* Clean, readable title with subtle retro flair */
 .theme-retro .markdown h1 {
   font-family: var(--font-display);
-  font-size: 1.5rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border: 2px solid var(--th-accent);
-  padding: 1rem 1.5rem;
-  display: inline-block;
-  margin-bottom: 2rem;
-  animation: flicker 4s infinite;
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--th-cyan);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--th-border);
+  position: relative;
+}
+
+/* Subtle terminal prompt accent */
+.theme-retro .markdown h1::before {
+  content: '>';
+  color: var(--th-accent);
+  margin-right: 0.5rem;
+  font-weight: 400;
 }
 
 .theme-retro .markdown h2 {
-  font-family: var(--font-ui);
-  font-size: 1.125rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--th-yellow);
+  margin-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--th-border-subtle);
 }
 
 .theme-retro .markdown h2::before {
-  content: '>> ';
+  content: '#';
   color: var(--th-accent);
+  margin-right: 0.5rem;
+  font-weight: 400;
 }
 
 .theme-retro .markdown h3 {
-  font-family: var(--font-ui);
-  font-size: 1rem;
-  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--th-amber);
+  margin-top: 2rem;
 }
 
 .theme-retro .markdown h3::before {
-  content: '> ';
+  content: '##';
+  color: var(--th-fg-subtle);
+  margin-right: 0.5rem;
+  font-weight: 400;
+  font-size: 0.875em;
 }
 
 .theme-retro .markdown h4 {
+  font-family: var(--font-display);
   font-size: 1rem;
+  font-weight: 700;
   color: var(--th-fg-muted);
 }
 
 .theme-retro .markdown h4::before {
-  content: '- ';
+  content: none;
 }
 
+/* Body text optimized for reading */
 .theme-retro .markdown p {
-  position: relative;
+  text-align: left;
+  hyphens: auto;
 }
 
+/* Bold text stands out with accent color */
 .theme-retro .markdown strong {
-  color: var(--th-accent-secondary, var(--th-accent));
-  text-transform: uppercase;
+  color: var(--th-accent);
+  font-weight: 700;
 }
 
+/* Italic gets a subtle warm tint */
+.theme-retro .markdown em {
+  color: var(--th-amber);
+  font-style: italic;
+}
+
+/* Elegant blockquote for paper abstracts and quotes */
 .theme-retro .markdown blockquote {
-  background: transparent;
-  border: 1px solid var(--th-accent);
-  border-radius: 0;
-  padding: 1rem 1.5rem;
-  font-style: normal;
+  background: var(--th-bg-subtle);
+  border-left: 3px solid var(--th-cyan);
+  border-radius: var(--th-radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--th-fg-muted);
 }
 
-.theme-retro .markdown blockquote::before {
-  content: '┌─────────────────────────────────────────┐';
-  display: block;
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  color: var(--th-fg-subtle);
-  margin: -1rem -1.5rem 1rem -1.5rem;
-  padding: 0 0.5rem;
-}
-
+.theme-retro .markdown blockquote::before,
 .theme-retro .markdown blockquote::after {
-  content: '└─────────────────────────────────────────┘';
-  display: block;
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  color: var(--th-fg-subtle);
-  margin: 1rem -1.5rem -1rem -1.5rem;
-  padding: 0 0.5rem;
+  content: none;
 }
 
+.theme-retro .markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Clean horizontal rule */
 .theme-retro .markdown hr {
-  height: auto;
-  background: transparent;
-  text-align: center;
-  margin: 3rem 0;
+  height: 1px;
+  background: var(--th-rule);
+  border: none;
+  margin: 2.5rem 0;
 }
 
 .theme-retro .markdown hr::before {
-  content: '════════════════════════════════════════════════════════════════════════════════';
-  color: var(--th-accent);
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  letter-spacing: -0.1em;
+  content: none;
 }
 
+/* Readable links with cyan color */
 .theme-retro .markdown a {
-  color: var(--th-accent-secondary, var(--th-accent));
-  text-decoration: none;
+  color: var(--th-cyan);
+  text-decoration: underline;
+  text-decoration-color: rgba(110, 207, 207, 0.4);
+  text-underline-offset: 3px;
+  transition: all 0.2s ease;
 }
 
-.theme-retro .markdown a::before {
-  content: '[';
-}
-
+.theme-retro .markdown a::before,
 .theme-retro .markdown a::after {
-  content: ']';
+  content: none;
 }
 
 .theme-retro .markdown a:hover {
-  text-decoration: underline;
-}
-
-.theme-retro .markdown :not(pre) > code {
-  background: transparent;
   color: var(--th-accent);
-  border: 1px solid var(--th-border);
-  border-radius: 0;
-  padding: 0.1rem 0.3rem;
+  text-decoration-color: var(--th-accent);
 }
 
+/* Inline code with pink accent */
+.theme-retro .markdown :not(pre) > code {
+  background: var(--th-bg-subtle);
+  color: var(--th-pink);
+  border: 1px solid var(--th-border-subtle);
+  border-radius: var(--th-radius);
+  padding: 0.15rem 0.4rem;
+  font-size: 0.9em;
+}
+
+/* Readable lists */
 .theme-retro .markdown ul {
   list-style: none;
-  padding-left: 2rem;
+  padding-left: 1.5rem;
+}
+
+.theme-retro .markdown ul li {
+  position: relative;
 }
 
 .theme-retro .markdown ul li::before {
-  content: '▸ ';
+  content: '•';
   color: var(--th-accent);
-  margin-left: -1.5rem;
+  position: absolute;
+  left: -1rem;
 }
 
 .theme-retro .markdown ol {
-  list-style: none;
-  counter-reset: retro-counter;
-  padding-left: 3rem;
+  list-style: decimal;
+  padding-left: 1.5rem;
+  counter-reset: none;
 }
 
 .theme-retro .markdown ol li {
-  counter-increment: retro-counter;
+  counter-increment: none;
 }
 
 .theme-retro .markdown ol li::before {
-  content: '[' counter(retro-counter) '] ';
-  color: var(--th-accent);
-  margin-left: -2.5rem;
-  font-family: var(--font-body);
+  content: none;
 }
 
+.theme-retro .markdown ol li::marker {
+  color: var(--th-yellow);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+/* Clean tables for data */
 .theme-retro .markdown table {
-  border: 1px solid var(--th-accent);
-  border-radius: 0;
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius-lg);
+  overflow: hidden;
 }
 
 .theme-retro .markdown th,
 .theme-retro .markdown td {
-  border-color: var(--th-border);
+  border-color: var(--th-border-subtle);
+  padding: 0.75rem 1rem;
 }
 
 .theme-retro .markdown th {
   background: var(--th-bg-subtle);
-  color: var(--th-accent);
+  color: var(--th-cyan);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
+.theme-retro .markdown td {
+  background: var(--th-bg-elevated);
+}
+
+/* Highlight marks with yellow */
+.theme-retro .markdown mark {
+  background: rgba(207, 207, 110, 0.25);
+  color: var(--th-yellow);
+  padding: 0.1rem 0.3rem;
+  border-radius: var(--th-radius);
+}
+
+/* Strikethrough with muted styling */
+.theme-retro .markdown del {
+  color: var(--th-fg-subtle);
+  text-decoration-color: var(--th-pink);
+}
+
+/* Images with subtle frame */
 .theme-retro .markdown img {
-  border-radius: 0;
-  border: 2px solid var(--th-accent);
-  box-shadow: none;
-  filter: contrast(1.1) brightness(0.95);
+  border-radius: var(--th-radius-lg);
+  border: 1px solid var(--th-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  filter: none;
 }
 
-/* CRT flicker animation */
-@keyframes flicker {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  92% {
-    opacity: 1;
-  }
-  93% {
-    opacity: 0.8;
-  }
-  94% {
-    opacity: 1;
-  }
-  96% {
-    opacity: 0.9;
-  }
-  97% {
-    opacity: 1;
-  }
+/* Subtle green glow on images */
+.theme-retro.dark .markdown img {
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(126, 207, 126, 0.05);
 }
 
-/* Blinking cursor for retro */
-@keyframes blink {
-  0%,
-  50% {
-    opacity: 1;
-  }
-  51%,
-  100% {
-    opacity: 0;
-  }
+/* ─────────────────────────────────────────────────────────────────────────────
+   TOKYO: Neovim's Tokyo Night color scheme
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.theme-tokyo .markdown {
+  font-size: 1.0625rem;
 }
 
-.theme-retro .markdown h1::after {
-  content: '█';
-  animation: blink 1s step-end infinite;
-  margin-left: 0.25rem;
+/* Clean, modern title with subtle glow */
+.theme-tokyo .markdown h1 {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--th-cyan);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 30px rgba(125, 207, 255, 0.15);
+}
+
+.theme-tokyo .markdown h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--th-accent);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--th-border);
+}
+
+.theme-tokyo .markdown h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--th-magenta);
+  margin-top: 2rem;
+}
+
+.theme-tokyo .markdown h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--th-fg-muted);
+  letter-spacing: 0.01em;
+}
+
+/* Bold text pops with accent color */
+.theme-tokyo .markdown strong {
+  color: var(--th-fg);
+  font-weight: 600;
+}
+
+/* Italic gets subtle teal tint */
+.theme-tokyo .markdown em {
+  color: var(--th-teal);
+  font-style: italic;
+}
+
+/* Blockquotes with accent border */
+.theme-tokyo .markdown blockquote {
+  background: var(--th-bg-subtle);
+  border-left: 3px solid var(--th-accent);
+  border-radius: 0 var(--th-radius-lg) var(--th-radius-lg) 0;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--th-fg-muted);
+}
+
+.theme-tokyo .markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Horizontal rule with accent gradient */
+.theme-tokyo .markdown hr {
+  height: 1px;
+  background: var(--th-rule);
+  border: none;
+  margin: 2.5rem 0;
+}
+
+/* Links with cyan glow on hover */
+.theme-tokyo .markdown a {
+  color: var(--th-cyan);
+  text-decoration: underline;
+  text-decoration-color: rgba(125, 207, 255, 0.35);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: all 0.2s ease;
+}
+
+.theme-tokyo .markdown a:hover {
+  color: var(--th-accent);
+  text-decoration-color: var(--th-accent);
+  text-shadow: 0 0 12px rgba(122, 162, 247, 0.3);
+}
+
+/* Inline code with magenta accent */
+.theme-tokyo .markdown :not(pre) > code {
+  background: var(--th-bg-elevated);
+  color: var(--th-magenta);
+  border: 1px solid var(--th-border-subtle);
+  border-radius: var(--th-radius);
+  padding: 0.15rem 0.4rem;
+  font-size: 0.875em;
+}
+
+/* Lists with colorful markers */
+.theme-tokyo .markdown ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.theme-tokyo .markdown ul li::marker {
+  color: var(--th-cyan);
+}
+
+.theme-tokyo .markdown ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+}
+
+.theme-tokyo .markdown ol li::marker {
+  color: var(--th-orange);
+  font-weight: 600;
+}
+
+/* Tables with subtle styling */
+.theme-tokyo .markdown table {
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius-lg);
+  overflow: hidden;
+}
+
+.theme-tokyo .markdown th,
+.theme-tokyo .markdown td {
+  border-color: var(--th-border-subtle);
+  padding: 0.75rem 1rem;
+}
+
+.theme-tokyo .markdown th {
+  background: var(--th-bg-subtle);
+  color: var(--th-cyan);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.theme-tokyo .markdown td {
+  background: var(--th-bg-elevated);
+}
+
+.theme-tokyo .markdown tbody tr:hover td {
+  background: var(--th-bg-subtle);
+}
+
+/* Images with subtle blue glow */
+.theme-tokyo .markdown img {
+  border-radius: var(--th-radius-lg);
+  border: 1px solid var(--th-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.theme-tokyo.dark .markdown img {
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(122, 162, 247, 0.08);
+}
+
+/* Highlight with yellow */
+.theme-tokyo .markdown mark {
+  background: rgba(224, 175, 104, 0.25);
+  color: var(--th-yellow);
+  padding: 0.1rem 0.3rem;
+  border-radius: var(--th-radius);
+}
+
+/* Strikethrough */
+.theme-tokyo .markdown del {
+  color: var(--th-fg-subtle);
+  text-decoration-color: var(--th-red);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -1577,6 +2303,8 @@ code {
 /* Theme-specific code block styling */
 .theme-editorial .code-block {
   border: 1px solid var(--th-border);
+  border-radius: var(--th-radius-lg);
+  background: var(--th-bg-subtle);
 }
 
 .theme-minimal .code-block {
@@ -1585,41 +2313,37 @@ code {
 }
 
 .theme-cozy .code-block {
-  box-shadow:
-    4px 4px 0 var(--th-border),
-    8px 8px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--th-border);
   border-radius: var(--th-radius-lg);
+  background: var(--th-bg-subtle);
 }
 
 .theme-bold .code-block {
-  border: 2px solid var(--th-border);
-  box-shadow:
-    0 4px 30px var(--th-accent-glow),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius-lg);
+  background: var(--th-bg-subtle);
 }
 
 .theme-retro .code-block {
-  border: 1px solid var(--th-accent);
-  border-radius: 0;
-  background: var(--th-bg);
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius-lg);
+  background: var(--th-bg-subtle);
+  overflow: hidden;
 }
 
+.theme-tokyo .code-block {
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius-lg);
+  background: var(--th-bg-subtle);
+}
+
+/* Clean header for code blocks */
 .theme-retro .code-block::before {
-  content: '╔══════════════════════════════════════════════════════════════╗';
-  display: block;
-  color: var(--th-accent);
-  font-size: 0.625rem;
-  letter-spacing: -0.1em;
-  padding: 0.25rem 0.5rem 0;
+  content: none;
 }
 
 .theme-retro .code-block::after {
-  content: '╚══════════════════════════════════════════════════════════════╝';
-  display: block;
-  color: var(--th-accent);
-  font-size: 0.625rem;
-  letter-spacing: -0.1em;
-  padding: 0 0.5rem 0.25rem;
+  content: none;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -1646,8 +2370,16 @@ code {
 
 /* Theme-specific editor styling */
 .theme-editorial .editor-container {
-  border: none;
-  box-shadow: none;
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius-lg);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+}
+
+.theme-editorial .editor-container:focus-within {
+  border-color: var(--th-accent);
+  box-shadow:
+    0 1px 12px rgba(0, 0, 0, 0.06),
+    0 0 0 2px var(--th-accent-subtle);
 }
 
 .theme-minimal .editor-container {
@@ -1661,41 +2393,61 @@ code {
 }
 
 .theme-cozy .editor-container {
+  border: 1px solid var(--th-border);
   border-radius: var(--th-radius-lg);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.theme-cozy .editor-container:focus-within {
+  border-color: var(--th-accent);
   box-shadow:
-    4px 4px 0 var(--th-border),
-    8px 8px 30px rgba(0, 0, 0, 0.08);
+    0 2px 16px rgba(0, 0, 0, 0.08),
+    0 0 0 2px var(--th-accent-subtle);
 }
 
 .theme-bold .editor-container {
-  border: 2px solid var(--th-border);
-  box-shadow: 0 8px 40px var(--th-accent-glow);
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .theme-bold .editor-container:focus-within {
   border-color: var(--th-accent);
   box-shadow:
-    0 8px 60px var(--th-accent-glow),
-    0 0 0 1px var(--th-accent);
+    0 4px 24px rgba(0, 0, 0, 0.2),
+    0 0 0 2px var(--th-accent-subtle);
 }
 
 .theme-retro .editor-container {
-  border: 2px solid var(--th-accent);
-  box-shadow: none;
-  border-radius: 0;
+  border: 1px solid var(--th-border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  border-radius: var(--th-radius-lg);
   position: relative;
 }
 
+.theme-retro .editor-container:focus-within {
+  border-color: var(--th-accent);
+  box-shadow:
+    0 2px 16px rgba(0, 0, 0, 0.15),
+    0 0 0 2px var(--th-accent-subtle);
+}
+
 .theme-retro .editor-container::before {
-  content: '[ EDIT MODE ]';
-  position: absolute;
-  top: -0.75rem;
-  left: 1rem;
-  background: var(--th-bg);
-  padding: 0 0.5rem;
-  font-family: var(--font-ui);
-  font-size: 0.75rem;
-  color: var(--th-accent);
+  content: none;
+}
+
+.theme-tokyo .editor-container {
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.theme-tokyo .editor-container:focus-within {
+  border-color: var(--th-accent);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.2),
+    0 0 0 2px var(--th-accent-subtle),
+    0 0 40px rgba(122, 162, 247, 0.1);
 }
 
 /* Textarea / Editor */
@@ -1742,6 +2494,13 @@ code {
   border: 2px solid var(--th-accent);
   box-shadow: none;
   border-radius: 0;
+}
+
+.theme-tokyo .command-palette {
+  border: 1px solid var(--th-border);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 60px rgba(122, 162, 247, 0.1);
 }
 
 /* Buttons */
@@ -1811,6 +2570,18 @@ code {
   color: var(--th-bg);
   transform: none;
   box-shadow: 0 0 10px var(--th-accent-glow);
+}
+
+.theme-tokyo .btn-primary {
+  background: var(--th-accent);
+  color: var(--th-bg-subtle);
+  box-shadow: 0 2px 12px var(--th-accent-glow);
+}
+
+.theme-tokyo .btn-primary:hover {
+  box-shadow:
+    0 4px 20px var(--th-accent-glow),
+    0 0 30px rgba(122, 162, 247, 0.15);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

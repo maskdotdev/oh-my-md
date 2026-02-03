@@ -1,7 +1,9 @@
 import { Show, createEffect, createSignal } from 'solid-js'
 import { Check, Copy } from 'lucide-solid'
 import { codeToHtml } from 'shiki'
-import { resolvedColorMode } from '../stores/theme'
+import { resolvedColorMode, aesthetic } from '../stores/theme'
+import type { AestheticTheme } from '../stores/theme'
+import type { BundledTheme } from 'shiki'
 
 // Common languages to support - these will be loaded on demand by Shiki
 const SUPPORTED_LANGUAGES: Set<string> = new Set([
@@ -106,16 +108,55 @@ export default function CodeBlock(props: CodeBlockProps) {
     return 'plaintext'
   }
 
+  // Get the appropriate Shiki theme based on aesthetic and color mode
+  const getShikiTheme = (
+    aestheticTheme: AestheticTheme,
+    mode: 'light' | 'dark',
+  ): BundledTheme => {
+    const themeMap: Record<
+      AestheticTheme,
+      { light: BundledTheme; dark: BundledTheme }
+    > = {
+      editorial: {
+        light: 'github-light',
+        dark: 'nord',
+      },
+      minimal: {
+        light: 'github-light',
+        dark: 'github-dark-dimmed',
+      },
+      cozy: {
+        light: 'kanagawa-lotus',
+        dark: 'kanagawa-wave',
+      },
+      bold: {
+        light: 'one-light',
+        dark: 'tokyo-night',
+      },
+      retro: {
+        light: 'everforest-light',
+        dark: 'everforest-dark',
+      },
+      tokyo: {
+        light: 'github-light-default',
+        dark: 'tokyo-night',
+      },
+    }
+
+    return themeMap[aestheticTheme][mode]
+  }
+
   // Highlight code with Shiki
   createEffect(() => {
     const code = props.code
     const lang = normalizeLanguage(props.language)
     const mode = resolvedColorMode()
+    const currentAesthetic = aesthetic()
 
     setIsLoading(true)
 
-    // Use appropriate theme based on current mode
-    const shikiTheme = mode === 'dark' ? 'github-dark' : 'github-light'
+    // Use appropriate theme based on aesthetic and color mode
+    const shikiTheme = getShikiTheme(currentAesthetic, mode)
 
     codeToHtml(code, {
       lang,
