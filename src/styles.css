@@ -1043,6 +1043,61 @@ code {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   }
 
+  .markdown .md-image {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    margin: 2rem 0;
+  }
+
+  .markdown .md-image img {
+    display: block;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .markdown .md-image-toggle {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--th-border);
+    background: var(--th-bg-elevated);
+    color: var(--th-fg);
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.55rem;
+    cursor: pointer;
+    opacity: 0.85;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .markdown .md-image:hover .md-image-toggle,
+  .markdown .md-image-toggle:focus-visible {
+    opacity: 1;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+  }
+
+  .markdown .md-image.is-inverted img {
+    filter: invert(1);
+  }
+
+  .markdown .md-image.is-inverted .md-image-toggle {
+    background: var(--th-accent);
+    color: var(--th-bg);
+    border-color: transparent;
+  }
+
   /* ─────────────────────────────────────────────────────────────────────────
      OTHER ELEMENTS
      ───────────────────────────────────────────────────────────────────────── */

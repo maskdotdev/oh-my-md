@@ -12,6 +12,9 @@ const md = new MarkdownIt({
 // Store original renderers
 const originalFence = md.renderer.rules.fence
 const originalCodeBlock = md.renderer.rules.code_block
+const originalImage = md.renderer.rules.image
+const originalLinkOpen = md.renderer.rules.link_open
+const originalLinkClose = md.renderer.rules.link_close
 
 interface CodeBlockData {
   id: string
@@ -36,6 +39,22 @@ export default function MarkdownPreview(props: MarkdownPreviewProps) {
 
     const codeBlocks: Array<CodeBlockData> = []
     let blockIndex = 0
+
+    const defaultImageRenderer =
+      originalImage ||
+      ((tokens, idx, options, _env, self) =>
+        self.renderToken(tokens, idx, options))
+    const defaultLinkOpenRenderer =
+      originalLinkOpen ||
+      ((tokens, idx, options, _env, self) =>
+        self.renderToken(tokens, idx, options))
+    const defaultLinkCloseRenderer =
+      originalLinkClose ||
+      ((tokens, idx, options, _env, self) =>
+        self.renderToken(tokens, idx, options))
+
+    const imageToggleButtonHtml =
+      '<button type="button" class="md-image-toggle" data-md-image-toggle aria-pressed="false" aria-label="Invert image colors" title="Invert colors">Invert</button>'
 
     // Custom renderer for fenced code blocks
     md.renderer.rules.fence = (tokens, idx) => {
@@ -65,11 +84,70 @@ export default function MarkdownPreview(props: MarkdownPreviewProps) {
       return `<div data-code-block-id="${id}"></div>`
     }
 
+    md.renderer.rules.image = (tokens, idx, options, env, self) => {
+      const imageHtml = defaultImageRenderer(tokens, idx, options, env, self)
+      const parentLevel = tokens[idx].level - 1
+      let isInsideLink = false
+
+      if (parentLevel >= 0) {
+        for (let i = idx - 1; i >= 0; i -= 1) {
+          const token = tokens[i]
+          if (token.level !== parentLevel) continue
+          if (token.type === 'link_close') break
+          if (token.type === 'link_open') {
+            isInsideLink = true
+            break
+          }
+        }
+      }
+
+      if (isInsideLink) return imageHtml
+
+      return `<span class="md-image" data-md-image>${imageHtml}${imageToggleButtonHtml}</span>`
+    }
+
+    md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
+      const isImageLink =
+        tokens[idx + 1]?.type === 'image' &&
+        tokens[idx + 2]?.type === 'link_close'
+
+      if (!isImageLink)
+        return defaultLinkOpenRenderer(tokens, idx, options, env, self)
+
+      return `<span class="md-image" data-md-image>${defaultLinkOpenRenderer(
+        tokens,
+        idx,
+        options,
+        env,
+        self,
+      )}`
+    }
+
+    md.renderer.rules.link_close = (tokens, idx, options, env, self) => {
+      const isImageLink =
+        tokens[idx - 1]?.type === 'image' &&
+        tokens[idx - 2]?.type === 'link_open'
+
+      if (!isImageLink)
+        return defaultLinkCloseRenderer(tokens, idx, options, env, self)
+
+      return `${defaultLinkCloseRenderer(
+        tokens,
+        idx,
+        options,
+        env,
+        self,
+      )}${imageToggleButtonHtml}</span>`
+    }
+
     const html = md.render(source)
 
     // Restore default renderers
     md.renderer.rules.fence = originalFence
     md.renderer.rules.code_block = originalCodeBlock
+    md.renderer.rules.image = originalImage
+    md.renderer.rules.link_open = originalLinkOpen
+    md.renderer.rules.link_close = originalLinkClose
 
     return { html, codeBlocks }
   })
@@ -119,8 +197,32 @@ export default function MarkdownPreview(props: MarkdownPreviewProps) {
     return result
   })
 
+  const handleMarkdownClick = (event: MouseEvent) => {
+    const target = event.target as HTMLElement | null
+    const toggle = target?.closest(
+      '[data-md-image-toggle]',
+    ) as HTMLButtonElement | null
+
+    if (!toggle) return
+
+    event.preventDefault()
+    event.stopPropagation()
+
+    const wrapper = toggle.closest('[data-md-image]') as HTMLElement | null
+    if (!wrapper) return
+
+    const isInverted = wrapper.classList.toggle('is-inverted')
+    toggle.setAttribute('aria-pressed', isInverted ? 'true' : 'false')
+    toggle.textContent = isInverted ? 'Normal' : 'Invert'
+    toggle.setAttribute(
+      'aria-label',
+      isInverted ? 'Show normal colors' : 'Invert image colors',
+    )
+    toggle.setAttribute('title', isInverted ? 'Show normal colors' : 'Invert')
+  }
+
   return (
-    <div class="markdown">
+    <div class="markdown" onClick={handleMarkdownClick}>
       <For each={segments()}>
         {(segment) => (
           <Show

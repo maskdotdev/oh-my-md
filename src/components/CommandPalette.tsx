@@ -9,6 +9,7 @@ import {
   Sun,
   Trash2,
 } from 'lucide-solid'
+import ConfirmDialog from './ConfirmDialog'
 import { deleteFile, files, setCurrentFileId } from '../stores/files'
 import {
   aesthetic,
@@ -37,6 +38,8 @@ type CommandItem =
 export default function CommandPalette(props: CommandPaletteProps) {
   const [search, setSearch] = createSignal('')
   const [selectedIndex, setSelectedIndex] = createSignal(0)
+  const [deleteConfirmOpen, setDeleteConfirmOpen] = createSignal(false)
+  const [fileToDelete, setFileToDelete] = createSignal<string | null>(null)
   let inputRef: HTMLInputElement | undefined
   let listRef: HTMLDivElement | undefined
 
@@ -176,9 +179,17 @@ export default function CommandPalette(props: CommandPaletteProps) {
 
   const handleDeleteFile = (e: MouseEvent, fileId: string) => {
     e.stopPropagation()
-    if (confirm('Are you sure you want to delete this file?')) {
+    setFileToDelete(fileId)
+    setDeleteConfirmOpen(true)
+  }
+
+  const confirmDeleteFile = () => {
+    const fileId = fileToDelete()
+    if (fileId) {
       deleteFile(fileId)
     }
+    setDeleteConfirmOpen(false)
+    setFileToDelete(null)
   }
 
   const getColorModeIcon = (value: ColorMode) => {
@@ -620,6 +631,21 @@ export default function CommandPalette(props: CommandPaletteProps) {
           </div>
         </div>
       </div>
+
+      {/* Delete Confirmation Dialog */}
+      <ConfirmDialog
+        isOpen={deleteConfirmOpen()}
+        title="Delete File"
+        description="Are you sure you want to delete this file? This action cannot be undone."
+        confirmLabel="Delete"
+        cancelLabel="Cancel"
+        variant="danger"
+        onConfirm={confirmDeleteFile}
+        onCancel={() => {
+          setDeleteConfirmOpen(false)
+          setFileToDelete(null)
+        }}
+      />
     </Show>
   )
 }

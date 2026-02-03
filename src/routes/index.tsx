@@ -9,6 +9,7 @@ import {
 } from 'solid-js'
 import { Command, Palette } from 'lucide-solid'
 import CommandPalette from '../components/CommandPalette'
+import InputDialog from '../components/InputDialog'
 import MarkdownPreview from '../components/MarkdownPreview'
 import {
   createFile,
@@ -139,6 +140,7 @@ function App() {
   const [lastSavedValue, setLastSavedValue] = createSignal(sampleMarkdown)
   const [mode, setMode] = createSignal<'edit' | 'preview'>('preview')
   const [commandPaletteOpen, setCommandPaletteOpen] = createSignal(false)
+  const [newFileDialogOpen, setNewFileDialogOpen] = createSignal(false)
   const [currentFileName, setCurrentFileName] = createSignal('Untitled')
   let textareaRef: HTMLTextAreaElement | undefined
   const [isDragging, setIsDragging] = createSignal(false)
@@ -252,10 +254,12 @@ function App() {
     if (noticeTimeout) clearTimeout(noticeTimeout)
   })
 
-  const setNotice = (notice: {
-    tone: 'info' | 'success' | 'error'
-    message: string
-  } | null) => {
+  const setNotice = (
+    notice: {
+      tone: 'info' | 'success' | 'error'
+      message: string
+    } | null,
+  ) => {
     if (noticeTimeout) clearTimeout(noticeTimeout)
     setImportNotice(notice)
     if (notice && notice.tone !== 'info') {
@@ -282,6 +286,14 @@ function App() {
     return baseName || 'Imported file'
   }
 
+  const sanitizeImportedMarkdown = (value: string) => {
+    let cleaned = value.replace(/^\uFEFF/, '').replace(/\u00a0/g, ' ')
+    const emptyAnchorRegex =
+      /<a\s+(?:id|name)=(?:"[^"]*"|'[^']*'|“[^”]*”|‘[^’]*’)[^>]*>\s*<\/a>/gi
+    cleaned = cleaned.replace(emptyAnchorRegex, '')
+    return cleaned
+  }
+
   const convertDocxToMarkdown = async (file: File) => {
     const arrayBuffer = await file.arrayBuffer()
     const mammoth = await import('mammoth')
@@ -291,7 +303,7 @@ function App() {
       const raw = await mammoth.extractRawText({ arrayBuffer })
       value = raw.value ?? ''
     }
-    return value
+    return sanitizeImportedMarkdown(value)
   }
 
   const extractPdfText = async (file: File) => {
@@ -407,9 +419,12 @@ function App() {
   }
 
   const handleCreateFile = () => {
-    const name = prompt('Enter file name:', 'Untitled')
-    if (name === null) return
-    const file = createFile(name || 'Untitled', '')
+    setNewFileDialogOpen(true)
+  }
+
+  const handleCreateFileSubmit = (name: string) => {
+    setNewFileDialogOpen(false)
+    const file = createFile(name, '')
     setCurrentFileId(file.id)
     setMarkdown('')
     setLastSavedValue('')
@@ -645,6 +660,18 @@ function App() {
         onClose={() => setCommandPaletteOpen(false)}
         onSelectFile={handleSelectFile}
         onCreateFile={handleCreateFile}
+      />
+
+      {/* New File Dialog */}
+      <InputDialog
+        isOpen={newFileDialogOpen()}
+        title="Create New File"
+        description="Enter a name for your new markdown file."
+        placeholder="File name"
+        defaultValue="Untitled"
+        submitLabel="Create"
+        onSubmit={handleCreateFileSubmit}
+        onCancel={() => setNewFileDialogOpen(false)}
       />
     </div>
   )
