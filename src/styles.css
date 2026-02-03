@@ -778,6 +778,69 @@ code {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   TEXT SELECTION STYLES
+   Ensure readable text when selected across all themes
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Editorial - deep blue selection */
+.theme-editorial ::selection {
+  background: rgba(26, 58, 92, 0.9);
+  color: #ffffff;
+}
+.theme-editorial.dark ::selection {
+  background: rgba(122, 162, 199, 0.9);
+  color: #161618;
+}
+
+/* Minimal - clean gray selection */
+.theme-minimal ::selection {
+  background: rgba(23, 23, 23, 0.85);
+  color: #ffffff;
+}
+.theme-minimal.dark ::selection {
+  background: rgba(237, 237, 237, 0.9);
+  color: #0a0a0a;
+}
+
+/* Cozy - warm amber selection */
+.theme-cozy ::selection {
+  background: rgba(180, 89, 48, 0.85);
+  color: #ffffff;
+}
+.theme-cozy.dark ::selection {
+  background: rgba(224, 144, 80, 0.9);
+  color: #1a1512;
+}
+
+/* Bold - vibrant purple selection */
+.theme-bold ::selection {
+  background: rgba(167, 139, 250, 0.9);
+  color: #12101a;
+}
+.theme-bold:not(.dark) ::selection {
+  background: rgba(124, 58, 237, 0.9);
+  color: #ffffff;
+}
+
+/* Retro - phosphor green selection */
+.theme-retro ::selection {
+  background: rgba(126, 207, 126, 0.9);
+  color: #0f1610;
+}
+.theme-retro:not(.dark) ::selection {
+  background: rgba(45, 138, 45, 0.9);
+  color: #ffffff;
+}
+
+/* Tokyo - signature blue selection */
+.theme-tokyo ::selection,
+.theme-tokyo.dark ::selection,
+.theme-tokyo:not(.dark) ::selection {
+  background: rgba(122, 162, 247, 0.9);
+  color: #1f2335;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
    TAILWIND THEME BRIDGE
    ═══════════════════════════════════════════════════════════════════════════ */
 
