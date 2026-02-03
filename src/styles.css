@@ -1,0 +1,1869 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   OH MY MD - DISTINCTIVE THEME SYSTEM
+   5 radically different visual personalities for your writing
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   FONT IMPORTS
+   Each theme has its own distinctive typography soul
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* EDITORIAL: Cormorant Garamond (luxe serif) + Instrument Serif (display) */
+@import '@fontsource/cormorant-garamond/400.css';
+@import '@fontsource/cormorant-garamond/400-italic.css';
+@import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/cormorant-garamond/700.css';
+@import '@fontsource/instrument-serif/400.css';
+@import '@fontsource/instrument-serif/400-italic.css';
+@import '@fontsource/noto-serif-display/400.css';
+@import '@fontsource/noto-serif-display/700.css';
+
+/* MINIMAL: Plus Jakarta Sans (geometric, balanced) */
+@import '@fontsource/plus-jakarta-sans/400.css';
+@import '@fontsource/plus-jakarta-sans/500.css';
+@import '@fontsource/plus-jakarta-sans/600.css';
+@import '@fontsource/plus-jakarta-sans/700.css';
+
+/* COZY: Bitter (warm slab) + Caveat (handwritten) + Kalam (casual) */
+@import '@fontsource/bitter/400.css';
+@import '@fontsource/bitter/400-italic.css';
+@import '@fontsource/bitter/600.css';
+@import '@fontsource/bitter/700.css';
+@import '@fontsource/caveat/400.css';
+@import '@fontsource/caveat/600.css';
+@import '@fontsource/caveat/700.css';
+@import '@fontsource/kalam/400.css';
+
+/* BOLD: Syne (experimental geometric) + Outfit (modern) + Archivo Black */
+@import '@fontsource/syne/400.css';
+@import '@fontsource/syne/600.css';
+@import '@fontsource/syne/700.css';
+@import '@fontsource/syne/800.css';
+@import '@fontsource/outfit/400.css';
+@import '@fontsource/outfit/500.css';
+@import '@fontsource/outfit/600.css';
+@import '@fontsource/archivo-black/400.css';
+
+/* RETRO: VT323 (terminal) + Press Start 2P (pixel) + Space Mono */
+@import '@fontsource/vt323/400.css';
+@import '@fontsource/press-start-2p/400.css';
+@import '@fontsource/space-mono/400.css';
+@import '@fontsource/space-mono/400-italic.css';
+@import '@fontsource/space-mono/700.css';
+
+/* Shared code fonts */
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/600.css';
+@import '@fontsource/fira-code/400.css';
+@import '@fontsource/fira-code/600.css';
+
+@import 'tailwindcss';
+@plugin "tailwindcss-animate";
+@custom-variant dark (&:is(.dark *));
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THEME: EDITORIAL
+   ═══════════════════════════════════════════════════════════════════════════
+   
+   AESTHETIC: The New Yorker meets Vogue
+   - Luxurious serif typography with generous x-height
+   - Elegant drop caps that command attention
+   - Refined ornamental rules and flourishes
+   - Cream paper tones with deep ink blacks
+   - Controlled asymmetry in pull quotes
+   - Small caps for subheadings
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root.theme-editorial {
+  --font-display: 'Instrument Serif', 'Noto Serif Display', Georgia, serif;
+  --font-body: 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'Cormorant Garamond', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Warm ivory paper */
+  --th-bg: #fdfbf7;
+  --th-bg-subtle: #f8f4eb;
+  --th-bg-elevated: #ffffff;
+  --th-fg: #1a1814;
+  --th-fg-muted: #5c574e;
+  --th-fg-subtle: #8a8478;
+
+  /* Rich burgundy accent */
+  --th-accent: #8b2635;
+  --th-accent-subtle: #f5e6e8;
+  --th-accent-glow: rgba(139, 38, 53, 0.15);
+
+  --th-border: #e8e4db;
+  --th-border-subtle: #f2efe8;
+
+  /* Editorial flourishes */
+  --th-dropcap: #8b2635;
+  --th-pullquote: #8b2635;
+  --th-ornament: #c9a96e;
+  --th-rule: linear-gradient(
+    90deg,
+    transparent 0%,
+    #c9a96e 15%,
+    #c9a96e 85%,
+    transparent 100%
+  );
+  --th-rule-ornate: url("data:image/svg+xml,%3Csvg width='100' height='12' viewBox='0 0 100 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6h40l5-5 5 5h10l5-5 5 5h30' stroke='%23c9a96e' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+
+  /* Generous reading rhythm */
+  --th-prose-width: 42rem;
+  --th-line-height: 1.85;
+  --th-paragraph-spacing: 1.75em;
+  --th-letter-spacing: 0.01em;
+
+  --th-radius: 0;
+  --th-radius-lg: 0;
+}
+
+:root.theme-editorial.dark {
+  --th-bg: #141210;
+  --th-bg-subtle: #1e1b17;
+  --th-bg-elevated: #252219;
+  --th-fg: #f5f2eb;
+  --th-fg-muted: #b5ae9f;
+  --th-fg-subtle: #7d776b;
+  --th-accent: #d4a574;
+  --th-accent-subtle: #2a231c;
+  --th-accent-glow: rgba(212, 165, 116, 0.2);
+  --th-border: #3d3830;
+  --th-border-subtle: #2a261f;
+  --th-dropcap: #d4a574;
+  --th-pullquote: #d4a574;
+  --th-ornament: #d4a574;
+  --th-rule: linear-gradient(
+    90deg,
+    transparent 0%,
+    #6b5d4a 15%,
+    #6b5d4a 85%,
+    transparent 100%
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THEME: MINIMAL
+   ═══════════════════════════════════════════════════════════════════════════
+   
+   AESTHETIC: Refined monochrome for focused reading
+   - Beautiful grayscale palette with careful contrast
+   - Clean, highly legible typography
+   - Generous whitespace for breathing room
+   - Subtle borders and dividers
+   - Refined, not brutal
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root.theme-minimal {
+  --font-display: 'Plus Jakarta Sans', -apple-system, system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, system-ui, sans-serif;
+  --font-ui: 'Plus Jakarta Sans', -apple-system, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Soft white, not harsh */
+  --th-bg: #fafafa;
+  --th-bg-subtle: #f4f4f4;
+  --th-bg-elevated: #ffffff;
+
+  /* Rich black for text, proper contrast */
+  --th-fg: #171717;
+  --th-fg-muted: #525252;
+  --th-fg-subtle: #a3a3a3;
+  --th-fg-bold: #000000;
+
+  /* Monochrome accent - dark gray */
+  --th-accent: #404040;
+  --th-accent-subtle: #e5e5e5;
+  --th-accent-glow: transparent;
+
+  --th-border: #e5e5e5;
+  --th-border-subtle: #f0f0f0;
+
+  --th-dropcap: #171717;
+  --th-pullquote: #525252;
+  --th-ornament: #d4d4d4;
+  --th-rule: #e5e5e5;
+
+  /* Comfortable reading rhythm */
+  --th-prose-width: 38rem;
+  --th-line-height: 1.7;
+  --th-paragraph-spacing: 1.5em;
+  --th-letter-spacing: -0.011em;
+
+  /* Subtle softness */
+  --th-radius: 0.25rem;
+  --th-radius-lg: 0.375rem;
+}
+
+:root.theme-minimal.dark {
+  /* Deep charcoal, not pure black */
+  --th-bg: #0a0a0a;
+  --th-bg-subtle: #141414;
+  --th-bg-elevated: #1a1a1a;
+
+  /* Off-white for less eye strain */
+  --th-fg: #ededed;
+  --th-fg-muted: #a3a3a3;
+  --th-fg-subtle: #525252;
+  --th-fg-bold: #ffffff;
+
+  --th-accent: #d4d4d4;
+  --th-accent-subtle: #262626;
+  --th-border: #262626;
+  --th-border-subtle: #1a1a1a;
+  --th-dropcap: #ededed;
+  --th-pullquote: #a3a3a3;
+  --th-ornament: #404040;
+  --th-rule: #262626;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THEME: COZY
+   ═══════════════════════════════════════════════════════════════════════════
+   
+   AESTHETIC: Handwritten notes in a coffee shop journal
+   - Warm slab serif for reading
+   - Handwritten fonts for accents and annotations
+   - Soft rounded corners everywhere
+   - Paper textures and subtle shadows
+   - Highlighter-style emphasis
+   - Sticky note and paper clip decorations
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root.theme-cozy {
+  --font-display: 'Caveat', cursive;
+  --font-body: 'Bitter', Georgia, serif;
+  --font-ui: 'Bitter', Georgia, serif;
+  --font-mono: 'Fira Code', monospace;
+  --font-handwritten: 'Caveat', cursive;
+  --font-casual: 'Kalam', cursive;
+
+  /* Warm cream with slight pink undertone */
+  --th-bg: #fef9f3;
+  --th-bg-subtle: #fdf4e9;
+  --th-bg-elevated: #ffffff;
+  --th-fg: #3d3225;
+  --th-fg-muted: #6b5d4d;
+  --th-fg-subtle: #9c8b78;
+
+  /* Warm terracotta/coral */
+  --th-accent: #c75c2e;
+  --th-accent-subtle: #fde8dd;
+  --th-accent-glow: rgba(199, 92, 46, 0.15);
+
+  /* Highlighter colors */
+  --th-highlight-yellow: #fff3a3;
+  --th-highlight-green: #c8f7c5;
+  --th-highlight-pink: #ffd6e0;
+
+  --th-border: #e8dfd3;
+  --th-border-subtle: #f5efe5;
+
+  --th-dropcap: #c75c2e;
+  --th-pullquote: #6b5d4d;
+  --th-ornament: #c75c2e;
+  --th-rule: repeating-linear-gradient(
+    90deg,
+    #d4c4b0 0px,
+    #d4c4b0 8px,
+    transparent 8px,
+    transparent 12px
+  );
+
+  /* Comfortable, spacious reading */
+  --th-prose-width: 40rem;
+  --th-line-height: 1.9;
+  --th-paragraph-spacing: 1.5em;
+  --th-letter-spacing: 0;
+
+  /* Soft, friendly */
+  --th-radius: 0.75rem;
+  --th-radius-lg: 1.25rem;
+
+  /* Paper texture */
+  --th-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+:root.theme-cozy.dark {
+  --th-bg: #1f1a14;
+  --th-bg-subtle: #2a241c;
+  --th-bg-elevated: #352d24;
+  --th-fg: #f5efe5;
+  --th-fg-muted: #c9bba8;
+  --th-fg-subtle: #8a7d6d;
+  --th-accent: #e8935a;
+  --th-accent-subtle: #3d2f24;
+  --th-accent-glow: rgba(232, 147, 90, 0.2);
+  --th-highlight-yellow: rgba(255, 243, 163, 0.15);
+  --th-highlight-green: rgba(200, 247, 197, 0.15);
+  --th-highlight-pink: rgba(255, 214, 224, 0.15);
+  --th-border: #443b2e;
+  --th-border-subtle: #2f2820;
+  --th-dropcap: #e8935a;
+  --th-pullquote: #c9bba8;
+  --th-ornament: #e8935a;
+  --th-rule: repeating-linear-gradient(
+    90deg,
+    #5a4d3d 0px,
+    #5a4d3d 8px,
+    transparent 8px,
+    transparent 12px
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THEME: BOLD
+   ═══════════════════════════════════════════════════════════════════════════
+   
+   AESTHETIC: Maximalist Neo-Brutalism meets Y2K
+   - Experimental geometric typography
+   - Gradient mesh backgrounds
+   - Glowing neon accents
+   - 3D depth with dramatic shadows
+   - Animated gradients on hover
+   - Overlapping elements, broken grid
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root.theme-bold {
+  --font-display: 'Archivo Black', 'Syne', Impact, sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --font-ui: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-experimental: 'Syne', sans-serif;
+
+  /* Deep purple/blue gradient base */
+  --th-bg: #0f0a1a;
+  --th-bg-subtle: #1a1230;
+  --th-bg-elevated: #251845;
+  --th-fg: #ffffff;
+  --th-fg-muted: #b8a5d6;
+  --th-fg-subtle: #7a6899;
+
+  /* Electric cyan + magenta */
+  --th-accent: #00f0ff;
+  --th-accent-secondary: #ff00aa;
+  --th-accent-subtle: rgba(0, 240, 255, 0.15);
+  --th-accent-glow: rgba(0, 240, 255, 0.4);
+
+  --th-border: #3d2a6b;
+  --th-border-subtle: #2a1d4a;
+
+  --th-dropcap: linear-gradient(135deg, #00f0ff 0%, #ff00aa 100%);
+  --th-pullquote: #00f0ff;
+  --th-ornament: #ff00aa;
+  --th-rule: linear-gradient(90deg, #00f0ff, #ff00aa, #00f0ff);
+
+  /* Gradient mesh for backgrounds */
+  --th-gradient-mesh:
+    radial-gradient(
+      ellipse at 20% 80%,
+      rgba(0, 240, 255, 0.15) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(255, 0, 170, 0.15) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(138, 43, 226, 0.1) 0%,
+      transparent 70%
+    );
+
+  /* Wide, impactful layout */
+  --th-prose-width: 48rem;
+  --th-line-height: 1.7;
+  --th-paragraph-spacing: 2em;
+  --th-letter-spacing: -0.02em;
+
+  /* Chunky, confident */
+  --th-radius: 0.5rem;
+  --th-radius-lg: 1rem;
+}
+
+:root.theme-bold.dark {
+  /* Bold IS dark-first, but we can go even darker */
+  --th-bg: #050208;
+  --th-bg-subtle: #0d0815;
+  --th-bg-elevated: #1a1030;
+  --th-border: #2a1d4a;
+  --th-border-subtle: #1a1030;
+}
+
+/* Light mode for Bold - inverted, still wild */
+:root.theme-bold:not(.dark) {
+  --th-bg: #faf5ff;
+  --th-bg-subtle: #f3e8ff;
+  --th-bg-elevated: #ffffff;
+  --th-fg: #1a0a30;
+  --th-fg-muted: #6b4d9a;
+  --th-fg-subtle: #9d7fd1;
+  --th-accent: #7c3aed;
+  --th-accent-secondary: #ec4899;
+  --th-accent-subtle: rgba(124, 58, 237, 0.15);
+  --th-accent-glow: rgba(124, 58, 237, 0.3);
+  --th-border: #e9d5ff;
+  --th-border-subtle: #f3e8ff;
+  --th-gradient-mesh:
+    radial-gradient(
+      ellipse at 20% 80%,
+      rgba(124, 58, 237, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(236, 72, 153, 0.1) 0%,
+      transparent 50%
+    );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THEME: RETRO
+   ═══════════════════════════════════════════════════════════════════════════
+   
+   AESTHETIC: 1980s computer terminal + BBS systems
+   - Monospace everything, pixel fonts for headers
+   - Phosphor green or amber on black
+   - CRT scanline effects
+   - Blinking cursor, typing animations
+   - ASCII art decorations
+   - Chunky, blocky UI elements
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root.theme-retro {
+  --font-display: 'Press Start 2P', monospace;
+  --font-body: 'VT323', 'Space Mono', monospace;
+  --font-ui: 'Space Mono', monospace;
+  --font-mono: 'VT323', monospace;
+
+  /* CRT phosphor green */
+  --th-bg: #0a0f0a;
+  --th-bg-subtle: #0f170f;
+  --th-bg-elevated: #142014;
+  --th-fg: #33ff33;
+  --th-fg-muted: #22cc22;
+  --th-fg-subtle: #1a991a;
+
+  /* Bright phosphor accent */
+  --th-accent: #33ff33;
+  --th-accent-secondary: #ffff33;
+  --th-accent-subtle: rgba(51, 255, 51, 0.1);
+  --th-accent-glow: rgba(51, 255, 51, 0.5);
+
+  --th-border: #1a4d1a;
+  --th-border-subtle: #0f2f0f;
+
+  --th-dropcap: #33ff33;
+  --th-pullquote: #22cc22;
+  --th-ornament: #33ff33;
+  --th-rule: repeating-linear-gradient(
+    90deg,
+    #33ff33 0px,
+    #33ff33 4px,
+    transparent 4px,
+    transparent 8px
+  );
+
+  /* Scanline effect */
+  --th-scanlines: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.3) 2px,
+    rgba(0, 0, 0, 0.3) 4px
+  );
+
+  /* CRT glow */
+  --th-crt-glow:
+    0 0 10px rgba(51, 255, 51, 0.3), 0 0 20px rgba(51, 255, 51, 0.2),
+    0 0 40px rgba(51, 255, 51, 0.1);
+
+  /* Terminal dimensions */
+  --th-prose-width: 80ch;
+  --th-line-height: 1.5;
+  --th-paragraph-spacing: 1.5em;
+  --th-letter-spacing: 0;
+
+  /* Blocky, no curves */
+  --th-radius: 0;
+  --th-radius-lg: 0;
+}
+
+/* Amber variant for light mode */
+:root.theme-retro:not(.dark) {
+  --th-bg: #1a1508;
+  --th-bg-subtle: #252010;
+  --th-bg-elevated: #302a18;
+  --th-fg: #ffaa00;
+  --th-fg-muted: #cc8800;
+  --th-fg-subtle: #996600;
+  --th-accent: #ffaa00;
+  --th-accent-secondary: #ff5500;
+  --th-accent-subtle: rgba(255, 170, 0, 0.1);
+  --th-accent-glow: rgba(255, 170, 0, 0.5);
+  --th-border: #4d3d1a;
+  --th-border-subtle: #2f2510;
+  --th-dropcap: #ffaa00;
+  --th-pullquote: #cc8800;
+  --th-ornament: #ffaa00;
+  --th-rule: repeating-linear-gradient(
+    90deg,
+    #ffaa00 0px,
+    #ffaa00 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  --th-crt-glow:
+    0 0 10px rgba(255, 170, 0, 0.3), 0 0 20px rgba(255, 170, 0, 0.2),
+    0 0 40px rgba(255, 170, 0, 0.1);
+}
+
+:root.theme-retro.dark {
+  /* Green is the default dark mode */
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Default to Editorial */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'Cormorant Garamond', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --th-bg: #fdfbf7;
+  --th-bg-subtle: #f8f4eb;
+  --th-bg-elevated: #ffffff;
+  --th-fg: #1a1814;
+  --th-fg-muted: #5c574e;
+  --th-fg-subtle: #8a8478;
+  --th-accent: #8b2635;
+  --th-accent-subtle: #f5e6e8;
+  --th-accent-glow: rgba(139, 38, 53, 0.15);
+  --th-border: #e8e4db;
+  --th-border-subtle: #f2efe8;
+  --th-dropcap: #8b2635;
+  --th-pullquote: #8b2635;
+  --th-ornament: #c9a96e;
+  --th-rule: linear-gradient(
+    90deg,
+    transparent 0%,
+    #c9a96e 15%,
+    #c9a96e 85%,
+    transparent 100%
+  );
+  --th-prose-width: 42rem;
+  --th-line-height: 1.85;
+  --th-paragraph-spacing: 1.75em;
+  --th-radius: 0;
+  --th-radius-lg: 0;
+
+  /* Tailwind integration */
+  --background: var(--th-bg);
+  --foreground: var(--th-fg);
+  --card: var(--th-bg-elevated);
+  --card-foreground: var(--th-fg);
+  --popover: var(--th-bg-elevated);
+  --popover-foreground: var(--th-fg);
+  --primary: var(--th-accent);
+  --primary-foreground: var(--th-bg);
+  --secondary: var(--th-bg-subtle);
+  --secondary-foreground: var(--th-fg);
+  --muted: var(--th-bg-subtle);
+  --muted-foreground: var(--th-fg-muted);
+  --accent: var(--th-bg-subtle);
+  --accent-foreground: var(--th-fg);
+  --destructive: #dc2626;
+  --destructive-foreground: #fef2f2;
+  --border: var(--th-border);
+  --input: var(--th-border);
+  --ring: var(--th-accent);
+  --radius: var(--th-radius);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  background-color: var(--th-bg);
+  color: var(--th-fg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+/* Theme-specific body backgrounds */
+.theme-bold body {
+  background: var(--th-bg);
+  background-image: var(--th-gradient-mesh);
+  min-height: 100vh;
+}
+
+.theme-retro body {
+  background: var(--th-bg);
+  position: relative;
+}
+
+.theme-retro body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: var(--th-scanlines);
+  z-index: 9999;
+}
+
+.theme-cozy body {
+  position: relative;
+}
+
+.theme-cozy body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: var(--th-texture);
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: -1;
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TAILWIND THEME BRIDGE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@theme inline {
+  --color-background: var(--th-bg);
+  --color-foreground: var(--th-fg);
+  --color-card: var(--th-bg-elevated);
+  --color-card-foreground: var(--th-fg);
+  --color-popover: var(--th-bg-elevated);
+  --color-popover-foreground: var(--th-fg);
+  --color-primary: var(--th-accent);
+  --color-primary-foreground: var(--th-bg);
+  --color-secondary: var(--th-bg-subtle);
+  --color-secondary-foreground: var(--th-fg);
+  --color-muted: var(--th-bg-subtle);
+  --color-muted-foreground: var(--th-fg-muted);
+  --color-accent: var(--th-bg-subtle);
+  --color-accent-foreground: var(--th-fg);
+  --color-destructive: #dc2626;
+  --color-destructive-foreground: #fef2f2;
+  --color-border: var(--th-border);
+  --color-input: var(--th-border);
+  --color-ring: var(--th-accent);
+  --radius-sm: calc(var(--th-radius) - 2px);
+  --radius-md: var(--th-radius);
+  --radius-lg: var(--th-radius-lg);
+  --radius-xl: calc(var(--th-radius-lg) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  a,
+  button {
+    touch-action: manipulation;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MARKDOWN PREVIEW - BASE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@layer components {
+  .markdown {
+    font-family: var(--font-body);
+    color: var(--th-fg);
+    font-size: 1.125rem;
+    line-height: var(--th-line-height);
+    overflow-wrap: anywhere;
+    max-width: var(--th-prose-width);
+    letter-spacing: var(--th-letter-spacing, 0);
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     HEADINGS
+     ───────────────────────────────────────────────────────────────────────── */
+
+  .markdown h1,
+  .markdown h2,
+  .markdown h3,
+  .markdown h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--th-fg);
+    line-height: 1.2;
+    text-wrap: balance;
+    margin-top: 2.5em;
+    margin-bottom: 0.75em;
+  }
+
+  .markdown h1 {
+    font-size: 2.75rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .markdown h2 {
+    font-size: 2rem;
+    letter-spacing: -0.01em;
+  }
+
+  .markdown h3 {
+    font-size: 1.5rem;
+  }
+
+  .markdown h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     PARAGRAPHS & INLINE ELEMENTS
+     ───────────────────────────────────────────────────────────────────────── */
+
+  .markdown p {
+    margin: 0 0 var(--th-paragraph-spacing);
+  }
+
+  .markdown strong {
+    font-weight: 700;
+    color: var(--th-fg);
+  }
+
+  .markdown em {
+    font-style: italic;
+  }
+
+  .markdown a {
+    color: var(--th-accent);
+    text-decoration: underline;
+    text-decoration-color: var(--th-accent-subtle);
+    text-underline-offset: 3px;
+    transition: all 0.2s ease;
+  }
+
+  .markdown a:hover {
+    text-decoration-color: var(--th-accent);
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     LISTS
+     ───────────────────────────────────────────────────────────────────────── */
+
+  .markdown ul,
+  .markdown ol {
+    margin: 0 0 var(--th-paragraph-spacing);
+    padding-left: 1.75rem;
+  }
+
+  .markdown li {
+    margin-bottom: 0.5rem;
+  }
+
+  .markdown li::marker {
+    color: var(--th-fg-subtle);
+  }
+
+  .markdown input[type='checkbox'] {
+    margin-right: 0.5rem;
+    accent-color: var(--th-accent);
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     BLOCKQUOTES
+     ───────────────────────────────────────────────────────────────────────── */
+
+  .markdown blockquote {
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    border-left: 4px solid var(--th-accent);
+    background: var(--th-bg-subtle);
+    color: var(--th-fg-muted);
+    border-radius: 0 var(--th-radius-lg) var(--th-radius-lg) 0;
+    font-style: italic;
+  }
+
+  .markdown blockquote p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     HORIZONTAL RULES
+     ───────────────────────────────────────────────────────────────────────── */
+
+  .markdown hr {
+    border: none;
+    height: 2px;
+    background: var(--th-rule);
+    margin: 3rem 0;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     INLINE CODE
+     ───────────────────────────────────────────────────────────────────────── */
+
+  .markdown code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+  }
+
+  .markdown :not(pre) > code {
+    background: var(--th-accent-subtle);
+    color: var(--th-accent);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--th-radius);
+    font-weight: 500;
+    font-size: 0.85em;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     TABLES
+     ───────────────────────────────────────────────────────────────────────── */
+
+  .markdown table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 2rem 0;
+    font-size: 0.9375rem;
+    border-radius: var(--th-radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--th-border);
+  }
+
+  .markdown th,
+  .markdown td {
+    border-bottom: 1px solid var(--th-border);
+    border-right: 1px solid var(--th-border);
+    padding: 1rem 1.25rem;
+    text-align: left;
+  }
+
+  .markdown th:last-child,
+  .markdown td:last-child {
+    border-right: none;
+  }
+
+  .markdown tr:last-child td {
+    border-bottom: none;
+  }
+
+  .markdown th {
+    background: var(--th-bg-subtle);
+    font-weight: 600;
+    font-family: var(--font-ui);
+    color: var(--th-fg);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  .markdown td {
+    background: var(--th-bg-elevated);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .markdown tbody tr {
+    transition: background-color 0.15s ease;
+  }
+
+  .markdown tbody tr:hover td {
+    background: var(--th-bg-subtle);
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     IMAGES
+     ───────────────────────────────────────────────────────────────────────── */
+
+  .markdown img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--th-radius-lg);
+    margin: 2rem 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     OTHER ELEMENTS
+     ───────────────────────────────────────────────────────────────────────── */
+
+  .markdown del {
+    color: var(--th-fg-subtle);
+    text-decoration-color: var(--destructive);
+  }
+
+  .markdown mark {
+    background: var(--th-accent-subtle);
+    color: var(--th-fg);
+    padding: 0.1rem 0.3rem;
+    border-radius: var(--th-radius);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THEME-SPECIFIC MARKDOWN STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   EDITORIAL: Magazine elegance
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.theme-editorial .markdown {
+  font-size: 1.1875rem;
+}
+
+.theme-editorial .markdown h1 {
+  font-size: 3.5rem;
+  font-weight: 400;
+  font-style: italic;
+  border-bottom: none;
+  position: relative;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.theme-editorial .markdown h1::after {
+  content: '◆';
+  display: block;
+  text-align: center;
+  font-style: normal;
+  font-size: 0.75rem;
+  color: var(--th-ornament);
+  margin-top: 1.5rem;
+  letter-spacing: 1em;
+}
+
+.theme-editorial .markdown h2 {
+  font-weight: 400;
+  font-size: 1.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: var(--font-body);
+  font-variant: small-caps;
+}
+
+.theme-editorial .markdown h3 {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Magnificent drop cap */
+.theme-editorial .markdown > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  line-height: 0.75;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  color: var(--th-dropcap);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.theme-editorial .markdown blockquote {
+  border-left: none;
+  border-top: 1px solid var(--th-ornament);
+  border-bottom: 1px solid var(--th-ornament);
+  background: transparent;
+  padding: 2rem 0;
+  margin: 3rem 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--th-fg);
+}
+
+.theme-editorial .markdown blockquote::before {
+  content: '"';
+  display: block;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: var(--th-ornament);
+  line-height: 0.5;
+  margin-bottom: 1rem;
+}
+
+.theme-editorial .markdown hr {
+  height: 1px;
+  background: var(--th-rule);
+  margin: 4rem auto;
+  max-width: 60%;
+  position: relative;
+}
+
+.theme-editorial .markdown hr::before {
+  content: '§';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--th-bg);
+  padding: 0 1rem;
+  color: var(--th-ornament);
+  font-size: 1.25rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MINIMAL: Swiss brutalism
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.theme-minimal .markdown {
+  font-size: 1.0625rem;
+}
+
+.theme-minimal .markdown h1 {
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.theme-minimal .markdown h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-top: 2.5rem;
+}
+
+.theme-minimal .markdown h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.theme-minimal .markdown h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--th-fg-muted);
+}
+
+.theme-minimal .markdown strong {
+  font-weight: 600;
+  color: var(--th-fg-bold);
+}
+
+.theme-minimal .markdown blockquote {
+  border-left: 3px solid var(--th-border);
+  background: var(--th-bg-subtle);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--th-fg-muted);
+}
+
+.theme-minimal .markdown hr {
+  height: 1px;
+  background: var(--th-border);
+  margin: 3rem 0;
+}
+
+.theme-minimal .markdown a {
+  color: var(--th-fg);
+  text-decoration: underline;
+  text-decoration-color: var(--th-fg-subtle);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.15s;
+}
+
+.theme-minimal .markdown a:hover {
+  text-decoration-color: var(--th-fg);
+}
+
+.theme-minimal .markdown :not(pre) > code {
+  background: var(--th-bg-subtle);
+  color: var(--th-fg);
+  border: 1px solid var(--th-border);
+  padding: 0.15rem 0.4rem;
+}
+
+.theme-minimal .markdown table {
+  border: 1px solid var(--th-border);
+}
+
+.theme-minimal .markdown th {
+  background: var(--th-bg-subtle);
+  color: var(--th-fg);
+  font-weight: 600;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   COZY: Handwritten warmth
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.theme-cozy .markdown {
+  font-size: 1.125rem;
+}
+
+.theme-cozy .markdown h1 {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--th-accent);
+  transform: rotate(-1deg);
+  margin-bottom: 2rem;
+}
+
+.theme-cozy .markdown h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+.theme-cozy .markdown h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  right: -4px;
+  height: 0.5em;
+  background: var(--th-highlight-yellow);
+  z-index: -1;
+  transform: rotate(-0.5deg);
+}
+
+.theme-cozy .markdown h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--th-fg-muted);
+}
+
+.theme-cozy .markdown strong {
+  background: var(--th-highlight-green);
+  padding: 0 0.25rem;
+}
+
+.theme-cozy .markdown blockquote {
+  background: var(--th-highlight-yellow);
+  border-left: none;
+  border-radius: var(--th-radius-lg);
+  padding: 1.5rem 2rem;
+  transform: rotate(0.5deg);
+  box-shadow:
+    4px 4px 0 var(--th-border),
+    8px 8px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.theme-cozy .markdown blockquote::before {
+  content: '📌';
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  font-size: 1.5rem;
+}
+
+.theme-cozy .markdown hr {
+  height: 4px;
+  background: var(--th-rule);
+  margin: 3rem 0;
+  border-radius: 2px;
+}
+
+.theme-cozy .markdown a {
+  color: var(--th-accent);
+  text-decoration: none;
+  background: linear-gradient(transparent 60%, var(--th-highlight-pink) 60%);
+  transition: background-size 0.2s;
+}
+
+.theme-cozy .markdown a:hover {
+  background: linear-gradient(transparent 40%, var(--th-highlight-pink) 40%);
+}
+
+.theme-cozy .markdown :not(pre) > code {
+  background: var(--th-bg-elevated);
+  border: 2px dashed var(--th-border);
+  border-radius: 0.5rem;
+}
+
+.theme-cozy .markdown table {
+  box-shadow: 4px 4px 0 var(--th-border);
+}
+
+.theme-cozy .markdown img {
+  border-radius: var(--th-radius-lg);
+  box-shadow:
+    6px 6px 0 var(--th-border),
+    12px 12px 30px rgba(0, 0, 0, 0.1);
+  transform: rotate(-1deg);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BOLD: Maximalist neo-brutalism
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.theme-bold .markdown {
+  font-size: 1.0625rem;
+}
+
+.theme-bold .markdown h1 {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  background: var(--th-dropcap);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  margin-bottom: 2rem;
+}
+
+.theme-bold .markdown h2 {
+  font-family: var(--font-experimental);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--th-accent);
+}
+
+.theme-bold .markdown h3 {
+  font-family: var(--font-experimental);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.theme-bold .markdown h4 {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  color: var(--th-fg-muted);
+}
+
+.theme-bold .markdown strong {
+  color: var(--th-accent);
+  font-weight: 700;
+}
+
+.theme-bold .markdown blockquote {
+  background: var(--th-bg-elevated);
+  border-left: 6px solid;
+  border-image: linear-gradient(
+      180deg,
+      var(--th-accent) 0%,
+      var(--th-accent-secondary, var(--th-accent)) 100%
+    )
+    1;
+  border-radius: 0 var(--th-radius-lg) var(--th-radius-lg) 0;
+  box-shadow:
+    0 4px 30px var(--th-accent-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.theme-bold .markdown hr {
+  height: 4px;
+  background: var(--th-rule);
+  border-radius: 2px;
+  box-shadow: 0 0 20px var(--th-accent-glow);
+}
+
+.theme-bold .markdown a {
+  color: var(--th-accent);
+  text-decoration: none;
+  position: relative;
+}
+
+.theme-bold .markdown a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--th-accent),
+    var(--th-accent-secondary, var(--th-accent))
+  );
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.theme-bold .markdown a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.theme-bold .markdown :not(pre) > code {
+  background: var(--th-accent-subtle);
+  color: var(--th-accent);
+  border-radius: var(--th-radius);
+  box-shadow: 0 0 10px var(--th-accent-glow);
+}
+
+.theme-bold .markdown table {
+  border: 2px solid var(--th-border);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.theme-bold .markdown th {
+  background: linear-gradient(
+    135deg,
+    var(--th-bg-elevated) 0%,
+    var(--th-bg-subtle) 100%
+  );
+}
+
+.theme-bold .markdown img {
+  border-radius: var(--th-radius-lg);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.3),
+    0 0 60px var(--th-accent-glow);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RETRO: Terminal aesthetic
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.theme-retro .markdown {
+  font-size: 1.25rem;
+  text-shadow: var(--th-crt-glow);
+}
+
+.theme-retro .markdown h1 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid var(--th-accent);
+  padding: 1rem 1.5rem;
+  display: inline-block;
+  margin-bottom: 2rem;
+  animation: flicker 4s infinite;
+}
+
+.theme-retro .markdown h2 {
+  font-family: var(--font-ui);
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.theme-retro .markdown h2::before {
+  content: '>> ';
+  color: var(--th-accent);
+}
+
+.theme-retro .markdown h3 {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.theme-retro .markdown h3::before {
+  content: '> ';
+}
+
+.theme-retro .markdown h4 {
+  font-size: 1rem;
+  color: var(--th-fg-muted);
+}
+
+.theme-retro .markdown h4::before {
+  content: '- ';
+}
+
+.theme-retro .markdown p {
+  position: relative;
+}
+
+.theme-retro .markdown strong {
+  color: var(--th-accent-secondary, var(--th-accent));
+  text-transform: uppercase;
+}
+
+.theme-retro .markdown blockquote {
+  background: transparent;
+  border: 1px solid var(--th-accent);
+  border-radius: 0;
+  padding: 1rem 1.5rem;
+  font-style: normal;
+}
+
+.theme-retro .markdown blockquote::before {
+  content: '┌─────────────────────────────────────────┐';
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--th-fg-subtle);
+  margin: -1rem -1.5rem 1rem -1.5rem;
+  padding: 0 0.5rem;
+}
+
+.theme-retro .markdown blockquote::after {
+  content: '└─────────────────────────────────────────┘';
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--th-fg-subtle);
+  margin: 1rem -1.5rem -1rem -1.5rem;
+  padding: 0 0.5rem;
+}
+
+.theme-retro .markdown hr {
+  height: auto;
+  background: transparent;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.theme-retro .markdown hr::before {
+  content: '════════════════════════════════════════════════════════════════════════════════';
+  color: var(--th-accent);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: -0.1em;
+}
+
+.theme-retro .markdown a {
+  color: var(--th-accent-secondary, var(--th-accent));
+  text-decoration: none;
+}
+
+.theme-retro .markdown a::before {
+  content: '[';
+}
+
+.theme-retro .markdown a::after {
+  content: ']';
+}
+
+.theme-retro .markdown a:hover {
+  text-decoration: underline;
+}
+
+.theme-retro .markdown :not(pre) > code {
+  background: transparent;
+  color: var(--th-accent);
+  border: 1px solid var(--th-border);
+  border-radius: 0;
+  padding: 0.1rem 0.3rem;
+}
+
+.theme-retro .markdown ul {
+  list-style: none;
+  padding-left: 2rem;
+}
+
+.theme-retro .markdown ul li::before {
+  content: '▸ ';
+  color: var(--th-accent);
+  margin-left: -1.5rem;
+}
+
+.theme-retro .markdown ol {
+  list-style: none;
+  counter-reset: retro-counter;
+  padding-left: 3rem;
+}
+
+.theme-retro .markdown ol li {
+  counter-increment: retro-counter;
+}
+
+.theme-retro .markdown ol li::before {
+  content: '[' counter(retro-counter) '] ';
+  color: var(--th-accent);
+  margin-left: -2.5rem;
+  font-family: var(--font-body);
+}
+
+.theme-retro .markdown table {
+  border: 1px solid var(--th-accent);
+  border-radius: 0;
+}
+
+.theme-retro .markdown th,
+.theme-retro .markdown td {
+  border-color: var(--th-border);
+}
+
+.theme-retro .markdown th {
+  background: var(--th-bg-subtle);
+  color: var(--th-accent);
+}
+
+.theme-retro .markdown img {
+  border-radius: 0;
+  border: 2px solid var(--th-accent);
+  box-shadow: none;
+  filter: contrast(1.1) brightness(0.95);
+}
+
+/* CRT flicker animation */
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0.8;
+  }
+  94% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 0.9;
+  }
+  97% {
+    opacity: 1;
+  }
+}
+
+/* Blinking cursor for retro */
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.theme-retro .markdown h1::after {
+  content: '█';
+  animation: blink 1s step-end infinite;
+  margin-left: 0.25rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CODE BLOCKS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.code-block {
+  font-family: var(--font-mono);
+  border-radius: var(--th-radius-lg);
+  overflow: hidden;
+}
+
+.code-block pre {
+  margin: 0;
+  counter-reset: line;
+}
+
+.code-block code {
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.code-block .shiki-wrapper {
+  background: var(--th-bg-subtle);
+}
+
+/* Theme-specific code block styling */
+.theme-editorial .code-block {
+  border: 1px solid var(--th-border);
+}
+
+.theme-minimal .code-block {
+  border: 1px solid var(--th-border);
+  background: var(--th-bg-subtle);
+}
+
+.theme-cozy .code-block {
+  box-shadow:
+    4px 4px 0 var(--th-border),
+    8px 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: var(--th-radius-lg);
+}
+
+.theme-bold .code-block {
+  border: 2px solid var(--th-border);
+  box-shadow:
+    0 4px 30px var(--th-accent-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.theme-retro .code-block {
+  border: 1px solid var(--th-accent);
+  border-radius: 0;
+  background: var(--th-bg);
+}
+
+.theme-retro .code-block::before {
+  content: '╔══════════════════════════════════════════════════════════════╗';
+  display: block;
+  color: var(--th-accent);
+  font-size: 0.625rem;
+  letter-spacing: -0.1em;
+  padding: 0.25rem 0.5rem 0;
+}
+
+.theme-retro .code-block::after {
+  content: '╚══════════════════════════════════════════════════════════════╝';
+  display: block;
+  color: var(--th-accent);
+  font-size: 0.625rem;
+  letter-spacing: -0.1em;
+  padding: 0 0.5rem 0.25rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   UI COMPONENTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Editor container */
+.editor-container {
+  background: var(--th-bg-elevated);
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius-lg);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.editor-container:focus-within {
+  border-color: var(--th-accent);
+  box-shadow:
+    0 4px 32px rgba(0, 0, 0, 0.1),
+    0 0 0 3px var(--th-accent-subtle);
+}
+
+/* Theme-specific editor styling */
+.theme-editorial .editor-container {
+  border: none;
+  box-shadow: none;
+}
+
+.theme-minimal .editor-container {
+  border: 1px solid var(--th-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.theme-minimal .editor-container:focus-within {
+  border-color: var(--th-fg-subtle);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.theme-cozy .editor-container {
+  border-radius: var(--th-radius-lg);
+  box-shadow:
+    4px 4px 0 var(--th-border),
+    8px 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.theme-bold .editor-container {
+  border: 2px solid var(--th-border);
+  box-shadow: 0 8px 40px var(--th-accent-glow);
+}
+
+.theme-bold .editor-container:focus-within {
+  border-color: var(--th-accent);
+  box-shadow:
+    0 8px 60px var(--th-accent-glow),
+    0 0 0 1px var(--th-accent);
+}
+
+.theme-retro .editor-container {
+  border: 2px solid var(--th-accent);
+  box-shadow: none;
+  border-radius: 0;
+  position: relative;
+}
+
+.theme-retro .editor-container::before {
+  content: '[ EDIT MODE ]';
+  position: absolute;
+  top: -0.75rem;
+  left: 1rem;
+  background: var(--th-bg);
+  padding: 0 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--th-accent);
+}
+
+/* Textarea / Editor */
+.editor-textarea {
+  font-family: var(--font-mono);
+  background: transparent;
+  color: var(--th-fg);
+  caret-color: var(--th-accent);
+}
+
+.editor-textarea::placeholder {
+  color: var(--th-fg-subtle);
+}
+
+.theme-retro .editor-textarea {
+  text-shadow: var(--th-crt-glow);
+}
+
+/* Command Palette */
+.command-palette {
+  background: var(--th-bg-elevated);
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.theme-minimal .command-palette {
+  border: 1px solid var(--th-border);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+.theme-cozy .command-palette {
+  box-shadow:
+    6px 6px 0 var(--th-border),
+    12px 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.theme-bold .command-palette {
+  border: 2px solid var(--th-border);
+  box-shadow: 0 20px 80px var(--th-accent-glow);
+}
+
+.theme-retro .command-palette {
+  border: 2px solid var(--th-accent);
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--th-accent);
+  color: var(--th-bg);
+  border-radius: var(--th-radius);
+  font-family: var(--font-ui);
+  font-weight: 500;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--th-accent-glow);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.theme-minimal .btn-primary {
+  background: var(--th-fg);
+  color: var(--th-bg);
+}
+
+.theme-minimal .btn-primary:hover {
+  background: var(--th-fg-muted);
+}
+
+.theme-cozy .btn-primary {
+  box-shadow: 3px 3px 0 var(--th-border);
+}
+
+.theme-cozy .btn-primary:hover {
+  box-shadow: 5px 5px 0 var(--th-border);
+  transform: translate(-2px, -2px);
+}
+
+.theme-bold .btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--th-accent) 0%,
+    var(--th-accent-secondary, var(--th-accent)) 100%
+  );
+  box-shadow: 0 4px 20px var(--th-accent-glow);
+}
+
+.theme-bold .btn-primary:hover {
+  box-shadow: 0 6px 30px var(--th-accent-glow);
+}
+
+.theme-retro .btn-primary {
+  background: transparent;
+  color: var(--th-accent);
+  border: 2px solid var(--th-accent);
+  border-radius: 0;
+  text-transform: uppercase;
+  font-family: var(--font-ui);
+  letter-spacing: 0.05em;
+}
+
+.theme-retro .btn-primary:hover {
+  background: var(--th-accent);
+  color: var(--th-bg);
+  transform: none;
+  box-shadow: 0 0 10px var(--th-accent-glow);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ANIMATIONS & TRANSITIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Smooth theme transitions */
+* {
+  transition-property:
+    background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+/* Disable transitions on theme change to prevent flash */
+.theme-switching * {
+  transition: none !important;
+}
+
+/* Page load animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Stagger children animation */
+.stagger-children > * {
+  opacity: 0;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.stagger-children > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.stagger-children > *:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.stagger-children > *:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.stagger-children > *:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.stagger-children > *:nth-child(5) {
+  animation-delay: 0.25s;
+}
